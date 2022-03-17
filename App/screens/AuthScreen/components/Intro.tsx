@@ -5,6 +5,7 @@ import { View, StyleSheet } from 'react-native';
 import { Logo } from '../../../components';
 import { height, width } from '../../../utils/dimension';
 import {darkGreen, black} from '../../../utils/colors';
+import LinearGradient from 'react-native-linear-gradient';
 
 function Intro() {
     return (
@@ -12,10 +13,12 @@ function Intro() {
             <Logo />
             <View style={styles.canva}>
                 <View style={styles.C1}>
-                    <View style={styles.ball1} />
+                    <LinearGradient colors={[darkGreen, black]}>
+                        <View style={styles.ball1} />
+                    </LinearGradient>
                 </View>
                 <View style={styles.C2}>
-                    
+
                 </View>
                 <View style={styles.C1}>
                     <View style={styles.ball2} />
