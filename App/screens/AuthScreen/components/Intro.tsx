@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native';
 //Imported utilities
 import { Logo } from '../../../components';
 import { height, width } from '../../../utils/dimension';
-import {darkGreen, black} from '../../../utils/colors';
+import {darkGreen, black, medBlack, white, lightGreen, darkerGreen} from '../../../utils/colors';
 import LinearGradient from 'react-native-linear-gradient';
 
 function Intro() {
@@ -13,15 +13,13 @@ function Intro() {
             <Logo />
             <View style={styles.canva}>
                 <View style={styles.C1}>
-                    <LinearGradient colors={[darkGreen, black]}>
-                        <View style={styles.ball1} />
-                    </LinearGradient>
+                    <LinearGradient colors={[black, medBlack]} style={styles.ball1} />
                 </View>
                 <View style={styles.C2}>
-
+                    <LinearGradient colors={[white, 'red']} style={styles.card} />
                 </View>
                 <View style={styles.C1}>
-                    <View style={styles.ball2} />
+                    <LinearGradient colors={[lightGreen, darkGreen, darkerGreen]} style={styles.ball2} />
                 </View>
             </View>
         </View>
@@ -38,22 +36,16 @@ const styles = StyleSheet.create({
     },
     canva: {
         height: 300,
-        borderWidth: 1,
-        borderColor: '#000',
         display: 'flex',
         flexDirection: 'row'
     },
     C1:{
         height: '100%',
-        width: '20%',
-        borderWidth: 1,
-        borderColor: '#000'
+        width: '20%'
     },
     C2: {
         height: '100%',
-        width: '60%',
-        borderWidth: 1,
-        borderColor: '#000'
+        width: '60%'
     },
     ball1: {
         height: 120,
@@ -71,6 +63,12 @@ const styles = StyleSheet.create({
         backgroundColor: black,
         position: 'relative',
         left: -30,
+        zIndex: 0
+    },
+    card: {
+        height: 150,
+        width: 300,
+        elevation: 200
     }
 })
 
