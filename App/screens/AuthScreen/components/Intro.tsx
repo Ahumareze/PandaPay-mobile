@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 
 //Imported utilities
 import { Logo } from '../../../components';
@@ -16,11 +16,19 @@ function Intro() {
                     <LinearGradient colors={[black, medBlack]} style={styles.ball1} />
                 </View>
                 <View style={styles.C2}>
-                    <LinearGradient colors={[white, 'red']} style={styles.card} />
+                    {/* <LinearGradient colors={[black, darkerGreen]}  start={{x: 0, y: 0}} end={{x: 1, y: 0}} style={styles.card} /> */}
                 </View>
                 <View style={styles.C1}>
                     <LinearGradient colors={[lightGreen, darkGreen, darkerGreen]} style={styles.ball2} />
                 </View>
+            </View>
+            <View style={styles.main}>
+                <Text style={styles.mainText}>Transfer money the easy way</Text>
+                <TouchableOpacity>
+                    <LinearGradient colors={[darkGreen, darkerGreen]}  start={{x: 0, y: 0}} end={{x: 1, y: 0}} style={styles.mainButton}>
+                        <Text style={styles.mainButtonText}>Get Started</Text>
+                    </LinearGradient>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -60,15 +68,41 @@ const styles = StyleSheet.create({
         height: 120,
         width: 120,
         borderRadius: 100,
-        backgroundColor: black,
         position: 'relative',
         left: -30,
-        zIndex: 0
+        elevation: 1
     },
     card: {
         height: 150,
         width: 300,
-        elevation: 200
+        elevation: 300,
+        borderWidth: 1,
+        borderColor: '#fff000',
+        borderRadius: 20,
+    },
+    main: {
+        width: '100%',
+        position: 'absolute',
+        bottom: 40
+    },
+    mainText: {
+        width: 250,
+        color: '#000',
+        fontSize: 30,
+        paddingBottom: 25
+    },
+    mainButton: {
+        height: 50,
+        width: 180,
+        backgroundColor: darkGreen,
+        borderRadius: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    mainButtonText: {
+        color: '#fff',
+        fontSize: 18
     }
 })
 
