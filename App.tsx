@@ -5,7 +5,7 @@ import { AuthScreenContainer } from './App/screens';
 function App(props) {
   return (
     <View>
-      <StatusBar {...props} backgroundColor="#61dafb" />
+      <StatusBar {...props} barStyle={'dark-content'} animated={true} backgroundColor="#fff" />
       <AuthScreenContainer />
     </View>
   );
