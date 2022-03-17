@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { View, StyleSheet, Text, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 
 //Imported utilities
@@ -7,7 +7,11 @@ import { height, width } from '../../../utils/dimension';
 import {darkGreen, black, medBlack, white, lightGreen, darkerGreen} from '../../../utils/colors';
 import LinearGradient from 'react-native-linear-gradient';
 
-function Intro() {
+interface IntroProps {
+    getStarted: (e: number) => void
+}
+
+const Intro:FC<IntroProps> = ({getStarted}):JSX.Element => {
     return (
         <View style={styles.container}>
             <Logo />
@@ -24,7 +28,7 @@ function Intro() {
             </View>
             <View style={styles.main}>
                 <Text style={styles.mainText}>Transfer money the easy way</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => getStarted(1)} >
                     <LinearGradient colors={[darkGreen, darkerGreen]}  start={{x: 0, y: 0}} end={{x: 1, y: 0}} style={styles.mainButton}>
                         <Text style={styles.mainButtonText}>Get Started</Text>
                     </LinearGradient>
