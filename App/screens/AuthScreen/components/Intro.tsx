@@ -4,12 +4,23 @@ import { View, StyleSheet } from 'react-native';
 //Imported utilities
 import { Logo } from '../../../components';
 import { height, width } from '../../../utils/dimension';
+import {darkGreen, black} from '../../../utils/colors';
 
 function Intro() {
     return (
         <View style={styles.container}>
             <Logo />
-            <View style={styles.canva}></View>
+            <View style={styles.canva}>
+                <View style={styles.C1}>
+                    <View style={styles.ball1} />
+                </View>
+                <View style={styles.C2}>
+                    
+                </View>
+                <View style={styles.C1}>
+                    <View style={styles.ball2} />
+                </View>
+            </View>
         </View>
     );
 }
@@ -21,12 +32,42 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
         height: height - 10,
         marginTop: 10,
-        backgroundColor: 'red'
     },
     canva: {
         height: 300,
         borderWidth: 1,
-        borderColor: 'red'
+        borderColor: '#000',
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    C1:{
+        height: '100%',
+        width: '20%',
+        borderWidth: 1,
+        borderColor: '#000'
+    },
+    C2: {
+        height: '100%',
+        width: '60%',
+        borderWidth: 1,
+        borderColor: '#000'
+    },
+    ball1: {
+        height: 120,
+        width: 120,
+        borderRadius: 100,
+        backgroundColor: black,
+        position: 'relative',
+        left: -30,
+        top: '60%'
+    },
+    ball2: {
+        height: 120,
+        width: 120,
+        borderRadius: 100,
+        backgroundColor: black,
+        position: 'relative',
+        left: -30,
     }
 })
 
