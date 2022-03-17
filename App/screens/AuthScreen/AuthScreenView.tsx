@@ -1,14 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import { Logo } from '../../components';
 
-//Imported utilities
-import {width} from '../../utils/dimension';
+//Imported compoments
+import Intro from './components/Intro';
 
 const AuthScreenView = () => {
-    console.log(width)
     return (
         <View>
-            <Text>Hello world</Text>
+            <Intro />
         </View>
     );
 }
