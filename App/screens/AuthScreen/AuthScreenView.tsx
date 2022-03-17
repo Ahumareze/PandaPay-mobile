@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View} from 'react-native';
 
-function AuthScreenView(props) {
+const AuthScreenView = () => {
     return (
         <View>
-            <Text>Hello world</Text>
+
         </View>
     );
 }
