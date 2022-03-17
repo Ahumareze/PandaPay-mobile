@@ -4,10 +4,10 @@ import { AuthScreenContainer } from './App/screens';
 
 function App(props) {
   return (
-    <>
-      <StatusBar {...props} bg='red' />
+    <View>
+      <StatusBar {...props} backgroundColor="#61dafb" />
       <AuthScreenContainer />
-    </>
+    </View>
   );
 }
 
