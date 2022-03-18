@@ -4,7 +4,6 @@ import { View, Text, StyleSheet } from 'react-native';
 //Imported utilities
 import { Input, Logo } from '../../../components';
 import { height, width } from '../../../utils/dimension';
-import {darkGreen, black, medBlack, white, lightGreen, darkerGreen} from '../../../utils/colors';
 
 //Imported components
 import FormTitle from './FormTitle';
@@ -28,7 +27,7 @@ const SignupScreen:FC<SignupScreenProps> = ({nextPage}):JSX.Element => {
         <View style={styles.container}>
             <Logo />
             <View style={styles.Form}>
-                <FormTitle />
+                <FormTitle name='Sign Up' />
                 <Input label='Fullname' type='default' secure={false} onChange={(e) => setFullname(e)} />
                 <Input label='Email' type={'email-address'} secure={false} onChange={(e) => setEmail(e)} />
                 <Input label='Password' type={'default'} secure onChange={(e) => setPassword(e)} />

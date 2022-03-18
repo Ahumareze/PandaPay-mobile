@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { Text, View , StyleSheet} from 'react-native';
 
 //Imported utilities
 import { black, darkGreen } from '../../../utils/colors';
 
-function FormTitle(props) {
+interface FormTitleProps{
+    name: string
+}
+
+const FormTitle:FC<FormTitleProps> = ({name}):JSX.Element => {
     return (
         <View>
-            <Text style={styles.mainText}>Sign up</Text>
+            <Text style={styles.mainText}>{name}</Text>
             <View style={styles.mainline} />
         </View>
     );

@@ -5,6 +5,7 @@ import { Logo } from '../../components';
 //Imported compoments
 import Intro from './components/Intro';
 import SignupScreen from './components/SignupScreen';
+import SignInScreen from './components/SignInScreen';
 
 const AuthScreenView = () => {
     const [screen, setScreen] = useState(0);
@@ -14,7 +15,9 @@ const AuthScreenView = () => {
         container = <Intro getStarted={(e) => setScreen(e)} />
     }else if(screen == 1){
         container = <SignupScreen nextPage={(e) => setScreen(e)} />
-    };
+    }else if(screen == 2){
+        container = <SignInScreen nextPage={(e) => setScreen(e)} />
+    }
 
     return (
         <View>
