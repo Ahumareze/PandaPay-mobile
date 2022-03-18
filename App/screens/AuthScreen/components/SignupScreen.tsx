@@ -15,12 +15,12 @@ interface SignupScreenProps{
 }
 
 const SignupScreen:FC<SignupScreenProps> = ({nextPage}):JSX.Element => {
-    const [fullname, setFullname] = useState<string>();
+    const [username, setUsername] = useState<string>();
     const [email, setEmail] = useState<string>();
     const [password, setPassword] = useState<string>();
 
     const submit = () => {
-        console.log(fullname, email, password)
+        console.log(username, email, password)
     }
 
     return (
@@ -28,7 +28,7 @@ const SignupScreen:FC<SignupScreenProps> = ({nextPage}):JSX.Element => {
             <Logo />
             <View style={styles.Form}>
                 <FormTitle name='Sign Up' />
-                <Input label='Fullname' type='default' secure={false} onChange={(e) => setFullname(e)} />
+                <Input label='Username' type='default' secure={false} onChange={(e) => setUsername(e)} />
                 <Input label='Email' type={'email-address'} secure={false} onChange={(e) => setEmail(e)} />
                 <Input label='Password' type={'default'} secure onChange={(e) => setPassword(e)} />
                 <Button title='Continue' onClick={() => submit()} />
