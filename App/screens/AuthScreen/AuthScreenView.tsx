@@ -13,7 +13,7 @@ const AuthScreenView = () => {
     if(screen == 0){
         container = <Intro getStarted={(e) => setScreen(e)} />
     }else if(screen == 1){
-        container = <SignupScreen />
+        container = <SignupScreen nextPage={(e) => setScreen(e)} />
     };
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 //Imported utilities
@@ -9,8 +9,13 @@ import {darkGreen, black, medBlack, white, lightGreen, darkerGreen} from '../../
 //Imported components
 import FormTitle from './FormTitle';
 import Button from './Button';
+import ExtraText from './extraText';
 
-function SignupScreen() {
+interface SignupScreenProps{
+    nextPage: (e: number) => void
+}
+
+const SignupScreen:FC<SignupScreenProps> = ({nextPage}):JSX.Element => {
     const [fullname, setFullname] = useState<string>();
     const [email, setEmail] = useState<string>();
     const [password, setPassword] = useState<string>();
@@ -28,6 +33,7 @@ function SignupScreen() {
                 <Input label='Email' type={'email-address'} secure={false} onChange={(e) => setEmail(e)} />
                 <Input label='Password' type={'default'} secure onChange={(e) => setPassword(e)} />
                 <Button title='Continue' onClick={() => submit()} />
+                <ExtraText text='already have an account?' page='log in' onClick={() => nextPage(2)} />
             </View>
         </View>
     );

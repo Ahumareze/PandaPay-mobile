@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { darkGreen } from '../../../utils/colors';
 
 interface ExtraTextProps{
     text: string,
@@ -7,27 +8,34 @@ interface ExtraTextProps{
     onClick: () => void
 }
 
-const extraText:FC<ExtraTextProps> = ({text, page, onClick}):JSX.Element => {
+const ExtraText:FC<ExtraTextProps> = ({text, page, onClick}):JSX.Element => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>{text}</Text>
-            <Text style={[styles.text, styles.page]}>{}</Text>
-        </View>
+        <TouchableOpacity onPress={() => onClick()} >
+            <View style={styles.container}>
+                <Text style={styles.text}>{text}</Text>
+                <Text style={[styles.text, styles.page]}> {page}</Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        paddingTop: 30
     },
     text: {
         fontSize: 17,
-        fontWeight: '400'
+        fontWeight: '400',
+        color: '#000',
     },
     page: {
         fontWeight: 'bold',
+        color: darkGreen
     }
 })
 
-export default extraText;
+export default ExtraText;
