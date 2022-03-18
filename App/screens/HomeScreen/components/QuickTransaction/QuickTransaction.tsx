@@ -9,7 +9,7 @@ function QuickTransaction() {
                 <QuickButtons type='send' />
             </View>
             <View style={styles.v2}>
-            <QuickButtons type='recieve' />
+                <QuickButtons type='recieve' />
             </View>
         </View>
     );
