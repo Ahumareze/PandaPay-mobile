@@ -1,17 +1,38 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { View, StyleSheet, Text, ImageBackground } from 'react-native';
-import { strokeColor } from '../../../../utils/colors';
+import { black, darkerGreen, darkGreen, red, strokeColor } from '../../../../utils/colors';
 
-const img = require('../../../../assets/cats3.png');
+interface TransactionItemProps{
+    username: string,
+    date: string,
+    img: any,
+    amount: number,
+    type: string
+}
 
-function TransactionItem(props) {
+const TransactionItem:FC<TransactionItemProps> = ({username, date, img, amount, type}):JSX.Element => {
+
+    let amountView;
+    if(type === 'credit'){
+        amountView = <Text style={styles.amount}>+${amount}</Text>
+    }else if(type === 'debit'){
+        amountView = <Text style={[styles.amount, styles.amount2]}>-${amount}</Text>
+    };
+    
     return (
         <View style={styles.container}>
             <View style={styles.v1}>
-                <ImageBackground source={img} />
+                <ImageBackground source={img} style={styles.userImg}/>
             </View>
-            <View style={styles.v2} />
-            <View style={styles.v3} />
+            <View style={styles.v2}>
+                <View>
+                    <Text style={styles.username}>{username}</Text>
+                    <Text style={styles.date}>{date}</Text>
+                </View>
+            </View>
+            <View style={styles.v3}>
+                {amountView}
+            </View>
         </View>
     );
 };
@@ -24,22 +45,54 @@ const styles = StyleSheet.create({
         borderColor: strokeColor,
         borderRadius: 10,
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 10
     },
     v1: {
         height: '100%',
         width: 55,
-        backgroundColor: 'red'
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     v2: {
         height: '100%',
         flex: 1,
-        backgroundColor: 'cyan'
+        display: 'flex',
+        justifyContent: 'center'
     },
     v3: {
         height: '100%',
-        width: 50,
-        backgroundColor: 'blue'
+        // width: 50,
+        display:  'flex',
+        justifyContent: 'center'
+    },
+    userImg: {
+        height: 45,
+        width: 45,
+        borderRadius: 30,
+        overflow: 'hidden'
+    },
+    username: {
+        fontSize: 17,
+        color: black,
+        paddingLeft: 5,
+        fontWeight: 'bold'
+    },
+    date: {
+        fontSize: 15,
+        color: black,
+        paddingLeft: 5,
+        opacity: 0.7
+    },
+    amount: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: darkerGreen,
+        paddingRight: 7
+    },
+    amount2: {
+        color: red
     }
 })
 

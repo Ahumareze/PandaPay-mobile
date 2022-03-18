@@ -4,6 +4,9 @@ import { black, darkGreen, strokeColor } from '../../../../utils/colors';
 import { width } from '../../../../utils/dimension';
 import TransactionItem from './TransactionItem';
 
+const img3 = require('../../../../assets/cats3.png');
+const img1 = require('../../../../assets/cat1.png');
+
 function Transactions(props) {
     return (
         <View style={styles.container}>
@@ -12,7 +15,8 @@ function Transactions(props) {
                 <Text style={styles.text2}> History</Text>
             </View>
             <View style={styles.section}>
-                <TransactionItem />
+                <TransactionItem img={img1} username='stephen_curry' date='13 Mar 2022' amount={230} type='credit' />
+                <TransactionItem img={img3} username='kalme_steve' date='12 Jan 2022' amount={140} type='debit' />
             </View>
         </View>
     );
@@ -20,7 +24,7 @@ function Transactions(props) {
 
 const styles = StyleSheet.create({
     container: {
-        height: 200,
+        paddingBottom: 5,
         width: '100%',
         borderWidth: 2,
         borderColor: strokeColor,

@@ -4,6 +4,7 @@ const darkerGreen = '#54BA15';
 const black = '#000';
 const medBlack = '#343434';
 const white = '#fff';
+const red = '#ff0000';
 
 const sendButton = '#373737';
 const recieveButton = '#ABF97C';
@@ -17,6 +18,7 @@ export {
     black,
     medBlack,
     white,
+    red,
     sendButton,
     recieveButton,
     strokeColor
