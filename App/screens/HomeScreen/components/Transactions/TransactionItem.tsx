@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import { View, StyleSheet, Text, ImageBackground } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { black, darkerGreen, darkGreen, red, strokeColor } from '../../../../utils/colors';
 
 interface TransactionItemProps{
@@ -20,6 +20,7 @@ const TransactionItem:FC<TransactionItemProps> = ({username, date, img, amount, 
     };
     
     return (
+        <TouchableOpacity>
         <View style={styles.container}>
             <View style={styles.v1}>
                 <ImageBackground source={img} style={styles.userImg}/>
@@ -34,6 +35,7 @@ const TransactionItem:FC<TransactionItemProps> = ({username, date, img, amount, 
                 {amountView}
             </View>
         </View>
+        </TouchableOpacity>
     );
 };
 
