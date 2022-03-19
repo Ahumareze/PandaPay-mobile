@@ -11,18 +11,20 @@ interface QuickButtonsProps{
 
 const QuickButtons:FC<QuickButtonsProps> = ({type}):JSX.Element => {
 
-    const myIcon = <Icons2 name="chatbubble-outline" size={30} color={'#fff'} />
+    const myIcon = <Icons2 name="search" size={30} color={'#fff'} />
     let div;
     if(type == 'send'){
         div = (
             <View style={styles.container}>
-                {myIcon}
+                <Icons2 name="linkedin" size={30} color={'#fff'} />
+                <Text>Send</Text>
             </View>
         )
     }else if(type == 'recieve'){
         div = (
             <View style={styles.container2}>
-                {myIcon}
+                <Icons2 name="search" size={30} color={'#fff'} />
+                <Text>Recieve</Text>
             </View>
         )
     }
