@@ -1,0 +1,5 @@
+const HOME = 'HOME';
+const TRANSFER = 'TRANSFER';
+const PROFILE = 'PROFILE';
+
+export {HOME, TRANSFER, PROFILE}
