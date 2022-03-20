@@ -12,10 +12,12 @@ function ProfileScreenView(props) {
         <View style={styles.container}>
             <View style={styles.userProfileDetails}>
                 <ProfilePic img={img} />
+                <Text>Username</Text>
             </View>
         </View>
     );
 };
+
 const styles = StyleSheet.create({
     container: {
         height: height,
