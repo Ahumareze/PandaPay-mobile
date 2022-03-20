@@ -6,6 +6,8 @@ import { black } from '../../utils/colors';
 import {Button, Input} from '../../components';
 import { width } from '../../utils/dimension';
 
+import Icon from 'react-native-vector-icons/AntDesign';
+
 function TransferScreenView(props) {
     return (
         <View style={styles.container}>
@@ -13,6 +15,10 @@ function TransferScreenView(props) {
             <View style={styles.Form}>
                 <Input label='Enter recieving username' type={'text'} secure={false} onChange={(e) => console.log(e)} />
                 <Button title='Continue' onClick={() => console.log('hello bitches')}  />
+            </View>
+            <View style={styles.QrCodeSelect}>
+                <Text style={styles.qrText}>Scan QRcode</Text>
+                <Icon name="scan1" size={40} color={black} style={styles.icon} />
             </View>
         </View>
     );
@@ -33,6 +39,22 @@ const styles = StyleSheet.create({
     },
     Form: {
         paddingTop: 30
+    },
+    QrCodeSelect: {
+        width: 200,
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        paddingTop: 50
+    },
+    qrText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: black,
+        textAlign: 'center'
+    },
+    icon: {
+        textAlign: 'center',
+        paddingTop: 10
     }
 })
 
