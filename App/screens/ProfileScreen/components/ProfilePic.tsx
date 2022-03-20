@@ -1,12 +1,16 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, {FC} from 'react';
+import { View, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import { darkGreen } from '../../../utils/colors';
 
-function ProfilePic(props) {
-    return (
-        <View style={styles.container}>
+interface ProfilePicProps{
+    img: any
+}
 
-        </View>
+const ProfilePic:FC<ProfilePicProps> = ({img}):JSX.Element => {
+    return (
+        <TouchableOpacity>
+            <ImageBackground source={img} style={styles.container} />
+        </TouchableOpacity>
     );
 };
 
@@ -15,7 +19,10 @@ const styles = StyleSheet.create({
         height: 120,
         width: 120,
         borderRadius: 60,
-        backgroundColor: darkGreen
+        backgroundColor: darkGreen,
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        overflow: 'hidden',
     }
 })
 
