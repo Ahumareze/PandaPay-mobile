@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {lightGreen, darkGreen, darkerGreen} from '../../../utils/colors';
+import {lightGreen, darkGreen, darkerGreen} from '../../utils/colors';
 
 interface ButtonProps{
     title: string,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40
+        marginTop: 30
     },
     title:{
         fontSize: 20,

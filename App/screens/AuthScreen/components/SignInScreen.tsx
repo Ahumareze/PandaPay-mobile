@@ -7,7 +7,7 @@ import { height, width } from '../../../utils/dimension';
 
 //Imported components
 import FormTitle from './FormTitle';
-import Button from './Button';
+import {Button} from '../../../components'
 import ExtraText from './extraText';
 
 interface SigninScreenProps{
