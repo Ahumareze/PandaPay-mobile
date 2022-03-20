@@ -5,7 +5,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import ProfilePic from './components/ProfilePic';
 import {width, height} from '../../utils/dimension';
 import { black } from '../../utils/colors';
-import ProfileSettings from './components/ProfileSettings/profileSettings';
+import ProfileSettings from './components/ProfileSettings/ProfileSettings';
 
 const img = require('../../assets/cat2.png');
 

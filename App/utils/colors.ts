@@ -11,6 +11,10 @@ const recieveButton = '#ABF97C';
 
 const strokeColor = '#B5B5B5';
 
+const depositColor = '#525252';
+const withdrawColor = '#ABF97C';
+const notificationColor = '#C4C4C4';
+
 export {
     lightGreen,
     darkGreen,
@@ -19,7 +23,13 @@ export {
     medBlack,
     white,
     red,
+    
     sendButton,
     recieveButton,
-    strokeColor
+
+    strokeColor,
+    
+    depositColor,
+    withdrawColor,
+    notificationColor
 }
