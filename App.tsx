@@ -1,12 +1,12 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
-import { TransferScreenContainer } from './App/screens';
+import Navigator from './App/navigation';
 
 function App(props) {
   return (
     <View>
       <StatusBar {...props} barStyle={'dark-content'} animated={true} backgroundColor="#fff" />
-      <TransferScreenContainer />
+      <Navigator />
     </View>
   );
 }
