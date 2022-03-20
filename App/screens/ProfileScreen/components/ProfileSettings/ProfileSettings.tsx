@@ -1,13 +1,15 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { black, depositColor, red } from '../../../../utils/colors';
+import { black, depositColor, medBlack, notificationColor, red, withdrawColor } from '../../../../utils/colors';
 import ProfileSettingItem from './ProfileSettingItem';
 
 function ProfileSettings(props) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Profile</Text>
-            <ProfileSettingItem color={depositColor} name='Deposit' />
+            <ProfileSettingItem icon='bank-outline' color={medBlack} name='Deposit' toggle={false} />
+            <ProfileSettingItem icon='cash' color={withdrawColor} name='Withdraw' toggle={false} />
+            <ProfileSettingItem icon='bell' color={notificationColor} name='Notification' toggle />
         </View>
     );
 }

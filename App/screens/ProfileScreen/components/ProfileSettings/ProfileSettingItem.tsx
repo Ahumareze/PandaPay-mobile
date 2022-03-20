@@ -2,11 +2,12 @@ import React, {FC} from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Switch } from 'react-native';
 
 //Imported Components
-import { black, medBlack, red } from '../../../../utils/colors';
+import { black, medBlack, red, white } from '../../../../utils/colors';
 import Icon from 'react-native-vector-icons/Feather';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface ProfileSettingItemProps{
-    icon: any,
+    icon: string,
     color: string,
     name: string,
     toggle: boolean
@@ -27,7 +28,9 @@ const ProfileSettingItem:FC<ProfileSettingItemProps> = ({icon, color, name, togg
     return (
         <TouchableOpacity>
             <View style={styles.container}>
-                <View style={[styles.icon, {backgroundColor: color}]} />
+                <View style={[styles.icon, {backgroundColor: color}]}>
+                    <Icon2 name={icon} color={white} size={15} />
+                </View>
                 <Text style={styles.text}>{name}</Text>
                 <View style={styles.extra}>
                     {extraIcon}
@@ -39,7 +42,7 @@ const ProfileSettingItem:FC<ProfileSettingItemProps> = ({icon, color, name, togg
 
 const styles = StyleSheet.create({
     container: {
-        height: 50,
+        height: 35,
         width: '100%',
         marginTop: 20,
         display: 'flex',
@@ -51,7 +54,10 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         marginTop: 'auto',
         marginBottom: 'auto',
-        backgroundColor: medBlack
+        backgroundColor: medBlack,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     text: {
         fontSize: 20,
