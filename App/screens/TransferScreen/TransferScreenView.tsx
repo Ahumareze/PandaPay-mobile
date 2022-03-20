@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { black } from '../../utils/colors';
 
 //Imported Compoents
@@ -16,10 +16,13 @@ function TransferScreenView(props) {
                 <Input label='Enter recieving username' type={'text'} secure={false} onChange={(e) => console.log(e)} />
                 <Button title='Continue' onClick={() => console.log('hello bitches')}  />
             </View>
-            <View style={styles.QrCodeSelect}>
-                <Text style={styles.qrText}>Scan QRcode</Text>
-                <Icon name="scan1" size={40} color={black} style={styles.icon} />
-            </View>
+
+            <TouchableOpacity>
+                <View style={styles.QrCodeSelect}>
+                    <Text style={styles.qrText}>Scan QRcode</Text>
+                    <Icon name="scan1" size={40} color={black} style={styles.icon} />
+                </View>
+            </TouchableOpacity>
         </View>
     );
 }
