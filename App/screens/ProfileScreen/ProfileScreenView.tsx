@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
         paddingTop: 30
     },
     username: {
-        fontSize: 23,
+        fontSize: 20,
         color: black,
         textAlign: 'center',
         paddingTop: 10
     },
     email: {
-        fontSize: 20,
+        fontSize: 18,
         color: black,
         textAlign: 'center',
         opacity: 0.7

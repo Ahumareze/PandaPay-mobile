@@ -22,7 +22,7 @@ const ProfileSettingItem:FC<ProfileSettingItemProps> = ({icon, color, name, togg
         )
     }else{
         extraIcon = (
-            <Icon name='chevron-right' color='#000' size={33} style={styles.extraIcon} />
+            <Icon name='chevron-right' color='#000' size={25} style={styles.extraIcon} />
         )
     }
     return (
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text: {
-        fontSize: 20,
+        fontSize: 18,
         color: black,
         marginTop: 'auto',
         marginBottom: 'auto',
