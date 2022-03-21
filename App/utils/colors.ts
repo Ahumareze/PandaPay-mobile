@@ -6,6 +6,8 @@ const medBlack = '#343434';
 const white = '#fff';
 const red = '#ff0000';
 
+const inputColor = '#E2E2E2'
+
 const sendButton = '#373737';
 const recieveButton = '#ABF97C';
 
@@ -23,6 +25,8 @@ export {
     medBlack,
     white,
     red,
+
+    inputColor,
     
     sendButton,
     recieveButton,

@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import { View, StyleSheet, Text, TextInput } from 'react-native';
+import { inputColor } from '../../utils/colors';
 
 interface InputProps{
     label: string,
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     input: {
         height: 40,
         width: '100%',
-        backgroundColor: '#E2E2E2',
+        backgroundColor: inputColor,
         borderRadius: 8,
         paddingLeft: 10,
         fontSize: 18,

@@ -22,6 +22,20 @@ const getReciever = (username: string) => {
     }
 }
 
+const dismiss = () => {
+    return (dispatch: any) => {
+        dispatch(setReciever(null));
+        dispatch(setSendAmount(null))
+    }
+}
+
+const setSendAmount = (value: string) => {
+    return{
+        type: actionTypes.SETSENDAMOUNT,
+        value
+    }
+}
+
 const setLoading = (value: boolean) => {
     return{
         type: actionTypes.SETLOADING,
@@ -37,5 +51,7 @@ const setReciever = (value: object) => {
 };
 
 export {
-    getReciever
+    getReciever,
+    dismiss,
+    setSendAmount
 }

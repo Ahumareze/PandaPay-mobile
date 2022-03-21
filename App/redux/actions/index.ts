@@ -1,5 +1,7 @@
-import {getReciever} from './actions';
+import {getReciever, dismiss, setSendAmount} from './actions';
 
 export {
-    getReciever
+    getReciever,
+    setSendAmount,
+    dismiss
 }

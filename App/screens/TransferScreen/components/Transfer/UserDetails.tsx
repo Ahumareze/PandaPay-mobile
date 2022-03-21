@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { black } from '../../../../utils/colors';
 
 const img = require('../../../../assets/cat1.png');
 
-function UserDetails(props) {
+interface UserDetailsProps{
+    username: string,
+    email: string
+}
+
+const UserDetails:FC<UserDetailsProps> = ({username, email}):JSX.Element => {
     return (
         <View style={styles.container}>
             <ImageBackground source={img} style={styles.userPic}  />
             <View style={styles.detailsContainer}>
-                <Text style={styles.username}>Username</Text>
-                <Text style={styles.email}>email@gmail.com</Text>
+                <Text style={styles.username}>{username}</Text>
+                <Text style={styles.email}>{email}</Text>
             </View>
         </View>
     );
