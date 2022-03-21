@@ -14,7 +14,6 @@ function Transfer(props) {
 const styles = StyleSheet.create({
     container: {
         height: height,
-        width: width,
         backgroundColor: red
     }
 })

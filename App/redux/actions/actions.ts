@@ -18,7 +18,7 @@ const getReciever = (username: string) => {
         const user = findUser(username);
         dispatch(setReciever(user));
         
-        // dispatch(setLoading(false));
+        dispatch(setLoading(false));
     }
 }
 
