@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
 import HomeScreenView from './HomeScreenView';
 
-function HomeScreenContainer(props) {
-    return <HomeScreenView />
+interface HomeContainerProps{
+    navigate: () => void
+}
+
+const HomeScreenContainer:FC<HomeContainerProps> = ({navigate}):JSX.Element => {
+    return <HomeScreenView navigate={() => navigate()} />
 }
 
 export default HomeScreenContainer;

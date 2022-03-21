@@ -13,7 +13,7 @@ interface QuickButtonsProps{
     onClick: () => void
 }
 
-const QuickButtons:FC<QuickButtonsProps> = ({type}):JSX.Element => {
+const QuickButtons:FC<QuickButtonsProps> = ({type, onClick}):JSX.Element => {
 
     let div;
     if(type == 'send'){
@@ -41,7 +41,7 @@ const QuickButtons:FC<QuickButtonsProps> = ({type}):JSX.Element => {
     }
 
     return(
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onClick()}>
             {div}
         </TouchableOpacity>
     )

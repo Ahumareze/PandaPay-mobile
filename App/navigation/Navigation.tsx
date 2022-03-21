@@ -13,22 +13,28 @@ import {
 import {
     HOME,
     TRANSFER,
-    PROFILE
+    PROFILE,
+    STORE
 } from './Route';
 
 //Icons
 import Icons from 'react-native-vector-icons/Feather';
 import Icons2 from 'react-native-vector-icons/Ionicons';
-import { View, StyleSheet } from 'react-native';
+import Icon3 from 'react-native-vector-icons/MaterialIcons';
+import { View, StyleSheet, Text } from 'react-native';
 import { height, width } from '../utils/dimension';
 import { white } from '../utils/colors';
 
-const Home = () => {
-    return <HomeScreenContainer />
+const Home = ({navigation}) => {
+    return <HomeScreenContainer navigate={() => navigation.navigate({ name: TRANSFER, merge: true })}/>
 }
 
 const Transfer = () => {
     return <TransferScreenContainer />
+}
+
+const Store = () => {
+    return <Text>Store</Text>
 }
 
 const Profile = () => {
@@ -67,6 +73,19 @@ const Navigator = () => {
                             tabBarIcon: ({focused}) => (
                             <Icons2
                                 name="swap-horizontal"
+                                size={25}
+                                color={focused ? '#000' : 'grey'}
+                            />
+                            ),
+                        }}
+                    />
+                    <Tab.Screen 
+                        name={STORE}
+                        component={Store}
+                        options={{
+                            tabBarIcon: ({focused}) => (
+                            <Icon3
+                                name="storefront"
                                 size={25}
                                 color={focused ? '#000' : 'grey'}
                             />

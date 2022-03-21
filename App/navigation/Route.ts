@@ -1,5 +1,6 @@
 const HOME = 'HOME';
 const TRANSFER = 'TRANSFER';
+const STORE = 'STORE';
 const PROFILE = 'PROFILE';
 
-export {HOME, TRANSFER, PROFILE}
+export {HOME, TRANSFER, PROFILE, STORE}

@@ -1,15 +1,20 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import QuickButtons from './QuickButtons';
 
-function QuickTransaction() {
+interface QuickTransactionProps{
+    onSend: () => void,
+    onRecieve: () => void
+}
+
+const QuickTransaction:FC<QuickTransactionProps> = ({onSend, onRecieve}):JSX.Element => {
     return (
         <View style={styles.container}>
             <View style={styles.v1}>
-                <QuickButtons type='send' onClick={() => console.log('')} />
+                <QuickButtons type='send' onClick={() => onSend()} />
             </View>
             <View style={styles.v2}>
-                <QuickButtons type='recieve' onClick={() => console.log('')} />
+                <QuickButtons type='recieve' onClick={() => onRecieve()} />
             </View>
         </View>
     );

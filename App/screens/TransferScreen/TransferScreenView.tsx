@@ -4,7 +4,7 @@ import { black, white } from '../../utils/colors';
 
 //Imported Compoents
 import {Button, Input} from '../../components';
-import { width } from '../../utils/dimension';
+import { height, width } from '../../utils/dimension';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
         paddingRight: 10,
         paddingLeft: 10,
-        width: width
+        width: width,
+        height: height
     },
     title: {
         fontSize: 18,
