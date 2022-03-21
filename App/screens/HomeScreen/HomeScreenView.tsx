@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+
+//Imported Components
 import { Header } from '../../components';
 import { white } from '../../utils/colors';
 import {width} from '../../utils/dimension';
