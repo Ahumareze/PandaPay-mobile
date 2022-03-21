@@ -1,7 +1,7 @@
 const nft1 = require('../assets/cat1.png');
 const nft2 = require('../assets/cat2.png');
 const nft3 = require('../assets/cat3.png');
-const nft4 = require('../assets/cat4.png');
+const nft4 = require('../assets/cat4.jpg');
 
 const users = [
     {username: 'king', email: 'king@gmail.com', id: 0, balance: 100, nft: nft1},
