@@ -9,6 +9,7 @@ import loader from '../../assets/others/spinner.json';
 const {height, width} = Dimensions.get('window');
 
 const Loader = () => {
+  console.log('hello')
   return (
     <View style={styles.container}>
       <LottieView source={loader} autoPlay loop />
