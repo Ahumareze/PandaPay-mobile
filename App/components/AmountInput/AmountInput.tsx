@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { black, inputColor, red } from '../../../../utils/colors';
-import * as actions from '../../../../redux/actions';
+import { black, inputColor, red } from '../../utils/colors';
 
-function AmountInput(props) {
-    const dispatch = useDispatch();
+interface AmountInputProps{
+    title: string,
+    onChange:(e: string) => void
+}
 
+const AmountInput:FC<AmountInputProps> = ({title, onChange}):JSX.Element => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Enter amount:</Text>
+            <Text style={styles.text}>{title}:</Text>
             <View style={styles.inputView}>
                 <Text style={styles.currency}>$</Text>
-                <TextInput style={styles.input} keyboardType={'numeric'} onChangeText={(e) => dispatch(actions.setSendAmount(e))} />
+                <TextInput style={styles.input} keyboardType={'numeric'} onChangeText={(e) => onChange(e)} />
             </View>
         </View>
     )

@@ -7,7 +7,7 @@ import { height, width } from '../../../../utils/dimension';
 import * as actions from '../../../../redux/actions';
 
 //Imported components
-import AmountInput from './AmountInput';
+import AmountInput from '../../../../components/AmountInput/AmountInput';
 import UserDetails from './UserDetails';
 import {Button} from '../../../../components';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +22,7 @@ function Transfer(props) {
         <View style={styles.container}>
             <UserDetails username={recieverDetails.username} email={recieverDetails.email} nft={recieverDetails.nft} />
             <View style={styles.main}>
-                <AmountInput />
+                <AmountInput title='Enter amount' onChange={(e) => dispatch(actions.setSendAmount(e))} />
                 <Button title='Continue' onClick={() => console.log(amount)} />
             </View>
             <TouchableOpacity onPress={() => dispatch(actions.dismiss())} >

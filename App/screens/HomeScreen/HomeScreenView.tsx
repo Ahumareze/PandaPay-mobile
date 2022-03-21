@@ -5,7 +5,9 @@ import { Text, View, StyleSheet } from 'react-native';
 import { Header } from '../../components';
 import { white } from '../../utils/colors';
 import {width} from '../../utils/dimension';
+
 import Balance from './components/Balance';
+import Recieve from './components/Recieve/Recieve';
 import QuickTransaction from './components/QuickTransaction/QuickTransaction';
 import Transactions from './components/Transactions/Transactions';
 
@@ -24,12 +26,21 @@ const HomeScreenView:FC<HomeViewProps> = ({navigate}):JSX.Element => {
         setOpenRecieve(true)
     }
 
-    return (
-        <View style={styles.container}>
-            <Header />
+    let view = (
+        <>
             <Balance />
             <QuickTransaction onSend={() => onSend()} onRecieve={() => onRecieve()} />
             <Transactions />
+        </>
+    )
+    if(openRecieve){
+        view = <Recieve />
+    }
+
+    return (
+        <View style={styles.container}>
+            <Header />
+            {view}
         </View>
     );
 }
