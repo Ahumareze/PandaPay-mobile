@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 //Imported Components
@@ -14,13 +14,14 @@ interface HomeViewProps{
 }
 
 const HomeScreenView:FC<HomeViewProps> = ({navigate}):JSX.Element => {
+    const [openRecieve, setOpenRecieve] = useState<boolean>(false);
 
     const onSend = () => {
         navigate()
     };
 
     const onRecieve = () => {
-        console.log('recieve')
+        setOpenRecieve(true)
     }
 
     return (
