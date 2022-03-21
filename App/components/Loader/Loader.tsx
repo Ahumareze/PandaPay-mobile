@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Dimensions, StyleSheet} from 'react-native';
+import {View, Dimensions, StyleSheet, Text} from 'react-native';
 
-import LottieView from 'lottie-react-native';
+// import LottieView from 'lottie-react-native';
 
 import loader from '../../assets/others/spinner.json';
 
@@ -12,7 +12,8 @@ const Loader = () => {
   console.log('hello')
   return (
     <View style={styles.container}>
-      <LottieView source={loader} autoPlay loop />
+      {/* <LottieView source={loader} autoPlay loop /> */}
+      <Text>Loading</Text>
     </View>
   );
 };

@@ -5,6 +5,8 @@ import { black, white } from '../../utils/colors';
 
 //Imported Compoents
 import Main from './components/Main';
+import Transfer from './components/Transfer';
+
 import { Loader } from '../../components';
 
 import { height, width } from '../../utils/dimension';
@@ -22,7 +24,7 @@ function TransferScreenView(props) {
     )
     if(reciever){
         view = (
-            <Text>Reciever</Text>
+            <Transfer />
         )
     }
 
