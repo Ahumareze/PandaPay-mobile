@@ -16,9 +16,14 @@ function TransferScreenView(props) {
         console.log(reciever)
     }, [reciever]);
 
-    const view = (
+    let view = (
         <Main />
     )
+    if(reciever){
+        view = (
+            <Text>Reciever</Text>
+        )
+    }
 
     return (
         <View style={styles.container}>

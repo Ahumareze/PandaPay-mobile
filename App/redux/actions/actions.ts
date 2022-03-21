@@ -12,11 +12,13 @@ const findUser = (username: string) => {
 
 const getReciever = (username: string) => {
     return (dispatch: any) => {
-        dispatch(setLoading(true))
+        dispatch(setLoading(true));
 
         //Run function to fetch user from database
         const user = findUser(username);
-        console.log(user)
+        dispatch(setReciever(user));
+        
+        dispatch(setLoading(false));
     }
 }
 
@@ -27,7 +29,7 @@ const setLoading = (value: boolean) => {
     }
 }
 
-const setReciever = (value: string) => {
+const setReciever = (value: object) => {
     return{
         type: actionTypes.SETRECIEVER,
         value
