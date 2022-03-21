@@ -1,5 +1,5 @@
-import {setReciever} from './actions';
+import {getReciever} from './actions';
 
 export {
-    setReciever
+    getReciever
 }

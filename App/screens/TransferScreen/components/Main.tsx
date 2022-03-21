@@ -15,7 +15,7 @@ function Main(props) {
     const [user, setUser] = useState<string>();
 
     const setReciever = () => {
-        dispatch(actions.setReciever(user))
+        dispatch(actions.getReciever(user))
     }
 
     return (
