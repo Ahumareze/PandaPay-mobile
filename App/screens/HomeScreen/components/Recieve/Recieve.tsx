@@ -4,9 +4,11 @@ import { Button } from '../../../../components';
 import AmountInput from '../../../../components/AmountInput/AmountInput';
 import { black } from '../../../../utils/colors';
 import { height } from '../../../../utils/dimension';
+import QRCode from 'react-native-qrcode-generator';
 
 function Recieve(props) {
     const [amount, setAmount] = useState<string>();
+    const [gen, setGen] = useState<boolean>();
 
     const setValue = (e: string) => {
         const value = JSON.parse(e);
@@ -14,14 +16,27 @@ function Recieve(props) {
     };
 
     const generateQrcode = () => {
-        console.log(amount)
+        setGen(true)
+    }
+
+    let view = (
+        <>
+            <AmountInput title='Enter amount' onChange={(e) => setValue(e)} />
+            <Button title='Request payment' onClick={() => generateQrcode()} />
+        </>
+    )
+    if(gen){
+        view = (
+            <View>
+                <QRCode value={amount} size={200} bgColor='red' fgColor='purple' />
+            </View>
+        )
     }
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>~ Recieve cash ~</Text>
-            <AmountInput title='Enter amount' onChange={(e) => setValue(e)} />
-            <Button title='Request payment' onClick={() => generateQrcode()} />
+            {view}
         </View>
     );
 };
