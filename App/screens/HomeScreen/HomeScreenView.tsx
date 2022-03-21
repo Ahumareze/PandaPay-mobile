@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Header } from '../../components';
+import { white } from '../../utils/colors';
 import {width} from '../../utils/dimension';
 import Balance from './components/Balance';
 import QuickTransaction from './components/QuickTransaction/QuickTransaction';
@@ -19,9 +20,10 @@ function HomeScreenView(props) {
 
 const styles = StyleSheet.create({
     container: {
-        width: width - 20,
-        marginRight: 'auto',
-        marginLeft: 'auto'
+        backgroundColor: white,
+        paddingRight: 10,
+        paddingLeft: 10,
+        width: width
     }
 })
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { black } from '../../utils/colors';
+import { black, white } from '../../utils/colors';
 
 //Imported Compoents
 import {Button, Input} from '../../components';
@@ -13,7 +13,7 @@ function TransferScreenView(props) {
         <View style={styles.container}>
             <Text style={styles.title}>New Transaction</Text>
             <View style={styles.Form}>
-                <Input label='Enter recieving username' type={'text'} secure={false} onChange={(e) => console.log(e)} />
+                <Input label='Enter recieving username' type={'default'} secure={false} onChange={(e) => console.log(e)} />
                 <Button title='Continue' onClick={() => console.log('hello bitches')}  />
             </View>
 
@@ -29,10 +29,11 @@ function TransferScreenView(props) {
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: white,
         paddingBottom: 30,
-        width: width - 40,
-        marginRight: 'auto',
-        marginLeft: 'auto'
+        paddingRight: 10,
+        paddingLeft: 10,
+        width: width
     },
     title: {
         fontSize: 18,

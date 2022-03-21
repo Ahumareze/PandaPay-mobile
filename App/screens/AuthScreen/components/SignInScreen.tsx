@@ -38,9 +38,9 @@ const SignInScreen:FC<SigninScreenProps> = ({nextPage}):JSX.Element => {
 
 const styles = StyleSheet.create({
     container:{
-        width: width - 20,
-        marginRight: 'auto',
-        marginLeft: 'auto',
+        paddingRight: 10,
+        paddingLeft: 10,
+        width: width,
         height: height - 10,
         marginTop: 10
     },

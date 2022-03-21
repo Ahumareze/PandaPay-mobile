@@ -6,6 +6,7 @@ import { Logo } from '../../components';
 import Intro from './components/Intro';
 import SignupScreen from './components/SignupScreen';
 import SignInScreen from './components/SignInScreen';
+import { white } from '../../utils/colors';
 
 const AuthScreenView = () => {
     const [screen, setScreen] = useState(0);
@@ -20,10 +21,16 @@ const AuthScreenView = () => {
     }
 
     return (
-        <View>
+        <View style={styles.contaner}>
             {container}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    contaner: {
+        backgroundColor: white
+    }
+})
 
 export default AuthScreenView;

@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 //Imported Components
 import ProfilePic from './components/ProfilePic';
 import {width, height} from '../../utils/dimension';
-import { black } from '../../utils/colors';
+import { black, white } from '../../utils/colors';
 import ProfileSettings from './components/ProfileSettings/ProfileSettings';
 import AccountSettings from './components/AccountSettings/AccountSettings';
 
@@ -28,10 +28,11 @@ function ProfileScreenView(props) {
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: white,
         paddingBottom: 30,
-        width: width - 20,
-        marginRight: 'auto',
-        marginLeft: 'auto'
+        paddingRight: 10,
+        paddingLeft: 10,
+        width: width
     },
     userProfileDetails: {
         paddingTop: 30
