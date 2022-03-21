@@ -4,7 +4,7 @@ import { black, darkGreen, strokeColor } from '../../../../utils/colors';
 import { width } from '../../../../utils/dimension';
 import TransactionItem from './TransactionItem';
 
-const img3 = require('../../../../assets/cats3.png');
+const img3 = require('../../../../assets/cat3.png');
 const img1 = require('../../../../assets/cat1.png');
 
 function Transactions(props) {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     container: {
         paddingBottom: 5,
         width: '100%',
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: strokeColor,
         marginTop: 20,
         borderRadius: 15,
