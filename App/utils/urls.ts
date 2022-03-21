@@ -1,4 +1,4 @@
-const dbUrl = 'http://localhost:5000/';
+const dbUrl = 'http://localhost:5000';
 
 export {
     dbUrl
