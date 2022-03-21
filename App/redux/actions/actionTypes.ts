@@ -1,0 +1,5 @@
+const SETRECIEVER = 'SETRECIEVER';
+
+export {
+    SETRECIEVER
+}

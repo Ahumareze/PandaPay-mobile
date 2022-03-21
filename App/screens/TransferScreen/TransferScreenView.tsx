@@ -16,7 +16,6 @@ function TransferScreenView(props) {
                 <Input label='Enter recieving username' type={'default'} secure={false} onChange={(e) => console.log(e)} />
                 <Button title='Continue' onClick={() => console.log('hello bitches')}  />
             </View>
-
             <TouchableOpacity>
                 <View style={styles.QrCodeSelect}>
                     <Text style={styles.qrText}>Scan QRcode</Text>
