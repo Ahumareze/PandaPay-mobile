@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 
 //Imported Components
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import {sendButton, recieveButton, white, black} from '../../../../utils/colors';
 
 //Imported Icons
@@ -17,25 +17,29 @@ const QuickButtons:FC<QuickButtonsProps> = ({type}):JSX.Element => {
     let div;
     if(type == 'send'){
         div = (
-            <View style={styles.container}>
-                <View>
-                    <View style={styles.IconContainer}>
-                        <Icon1 name="ios-send" size={25} color={black} />
+            <TouchableOpacity>
+                <View style={styles.container}>
+                    <View>
+                        <View style={styles.IconContainer}>
+                            <Icon1 name="ios-send" size={25} color={black} />
+                        </View>
+                        <Text style={styles.text}>Send</Text>
                     </View>
-                    <Text style={styles.text}>Send</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }else if(type == 'recieve'){
         div = (
-            <View style={styles.container2}>
-                <View>
-                    <View style={styles.IconContainer2}>
-                        <Icon2 name="qrcode" size={25} color={black} />
+            <TouchableOpacity>
+                <View style={styles.container2}>
+                    <View>
+                        <View style={styles.IconContainer2}>
+                            <Icon2 name="qrcode" size={25} color={black} />
+                        </View>
+                        <Text style={[styles.text, styles.text2]}>Recieve</Text>
                     </View>
-                    <Text style={[styles.text, styles.text2]}>Recieve</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 
