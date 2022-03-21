@@ -6,10 +6,10 @@ function QuickTransaction() {
     return (
         <View style={styles.container}>
             <View style={styles.v1}>
-                <QuickButtons type='send' />
+                <QuickButtons type='send' onClick={() => console.log('')} />
             </View>
             <View style={styles.v2}>
-                <QuickButtons type='recieve' />
+                <QuickButtons type='recieve' onClick={() => console.log('')} />
             </View>
         </View>
     );

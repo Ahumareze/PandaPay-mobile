@@ -9,7 +9,8 @@ import Icon1 from 'react-native-vector-icons/Ionicons';
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 
 interface QuickButtonsProps{
-    type: string
+    type: string,
+    onClick: () => void
 }
 
 const QuickButtons:FC<QuickButtonsProps> = ({type}):JSX.Element => {
@@ -17,33 +18,33 @@ const QuickButtons:FC<QuickButtonsProps> = ({type}):JSX.Element => {
     let div;
     if(type == 'send'){
         div = (
-            <TouchableOpacity>
-                <View style={styles.container}>
-                    <View>
-                        <View style={styles.IconContainer}>
-                            <Icon1 name="ios-send" size={25} color={black} />
-                        </View>
-                        <Text style={styles.text}>Send</Text>
+            <View style={styles.container}>
+                <View>
+                    <View style={styles.IconContainer}>
+                        <Icon1 name="ios-send" size={25} color={black} />
                     </View>
+                    <Text style={styles.text}>Send</Text>
                 </View>
-            </TouchableOpacity>
+            </View>
         )
     }else if(type == 'recieve'){
         div = (
-            <TouchableOpacity>
-                <View style={styles.container2}>
-                    <View>
-                        <View style={styles.IconContainer2}>
-                            <Icon2 name="qrcode" size={25} color={black} />
-                        </View>
-                        <Text style={[styles.text, styles.text2]}>Recieve</Text>
+            <View style={styles.container2}>
+                <View>
+                    <View style={styles.IconContainer2}>
+                        <Icon2 name="qrcode" size={25} color={black} />
                     </View>
+                    <Text style={[styles.text, styles.text2]}>Recieve</Text>
                 </View>
-            </TouchableOpacity>
+            </View>
         )
     }
 
-    return div
+    return(
+        <TouchableOpacity>
+            {div}
+        </TouchableOpacity>
+    )
 };
 
 const styles = StyleSheet.create({
