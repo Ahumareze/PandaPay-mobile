@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { black, white } from '../../utils/colors';
 
 //Imported Compoents
 import Main from './components/Main';
+import { Loader } from '../../components';
+
 import { height, width } from '../../utils/dimension';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 function TransferScreenView(props) {
     const reciever = useSelector((state: any) => state.mainReducer.reciever);
@@ -28,7 +29,7 @@ function TransferScreenView(props) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>New Transaction</Text>
-            {!loading ? view : <Text>Loading</Text> }
+            {!loading ? view : <Loader />}
         </View>
     );
 }
