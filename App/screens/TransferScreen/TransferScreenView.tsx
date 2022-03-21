@@ -10,15 +10,20 @@ import { useEffect } from 'react';
 
 function TransferScreenView(props) {
     const reciever = useSelector((state: any) => state.mainReducer.reciever);
+    const loading = useSelector((state: any) => state.mainReducer.loading);
 
     useEffect(() => {
         console.log(reciever)
-    }, [reciever])
+    }, [reciever]);
+
+    const view = (
+        <Main />
+    )
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>New Transaction</Text>
-            <Main />
+            {!loading ? view : <Text>Loading</Text> }
         </View>
     );
 }

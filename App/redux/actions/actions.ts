@@ -1,14 +1,29 @@
-import axios from 'axios';
-
 //Imported components
 import * as actionTypes from './actionTypes';
-import {dbUrl} from '../../utils/urls';
+
+//TextData
+import users from '../../testData/users';
+
+//Test components
+const findUser = (username: string) => {
+    const user = users.find(user => user.username === username);
+    return user
+} 
 
 const getReciever = (username: string) => {
     return (dispatch: any) => {
-        axios.get(dbUrl)
-            .then(r => console.log(r.data))
-            .catch(e => console.log(e))
+        dispatch(setLoading(true))
+
+        //Run function to fetch user from database
+        const user = findUser(username);
+        console.log(user)
+    }
+}
+
+const setLoading = (value: boolean) => {
+    return{
+        type: actionTypes.SETLOADING,
+        value
     }
 }
 
