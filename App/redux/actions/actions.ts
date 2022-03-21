@@ -1,9 +1,9 @@
 import * as actionTypes from './actionTypes';
 
-const setReciever = () => {
+const setReciever = (value: string) => {
     return{
         type: actionTypes.SETRECIEVER,
-        value: 'kingsley'
+        value
     }
 };
 
