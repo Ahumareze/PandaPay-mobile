@@ -4,8 +4,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { black, white } from '../../utils/colors';
 
 //Imported Compoents
-import Main from './components/Main';
-import Transfer from './components/Transfer';
+import Main from './components/Main/Main';
+import Transfer from './components/Transfer/Transfer';
 
 import { Loader } from '../../components';
 

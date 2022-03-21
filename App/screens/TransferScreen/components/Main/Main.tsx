@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 //Imported Components
-import { Button, Input } from '../../../components';
-import { black } from '../../../utils/colors';
+import { Button, Input } from '../../../../components';
+import { black } from '../../../../utils/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import * as actions from '../../../redux/actions';
+import * as actions from '../../../../redux/actions';
 
 function Main(props) {
     const dispatch = useDispatch();
