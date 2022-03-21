@@ -12,14 +12,15 @@ import QuickTransaction from './components/QuickTransaction/QuickTransaction';
 import Transactions from './components/Transactions/Transactions';
 
 interface HomeViewProps{
-    navigate: () => void
+    send: () => void,
+    profile: () => void
 }
 
-const HomeScreenView:FC<HomeViewProps> = ({navigate}):JSX.Element => {
+const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
     const [openRecieve, setOpenRecieve] = useState<boolean>(false);
 
     const onSend = () => {
-        navigate()
+        send()
     };
 
     const onRecieve = () => {
@@ -39,7 +40,7 @@ const HomeScreenView:FC<HomeViewProps> = ({navigate}):JSX.Element => {
 
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigate={() => profile()} />
             {view}
         </View>
     );

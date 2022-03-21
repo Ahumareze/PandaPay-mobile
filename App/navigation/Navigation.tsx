@@ -26,7 +26,10 @@ import { height, width } from '../utils/dimension';
 import { white } from '../utils/colors';
 
 const Home = ({navigation}) => {
-    return <HomeScreenContainer navigate={() => navigation.navigate({ name: TRANSFER, merge: true })}/>
+    return <HomeScreenContainer 
+        send={() => navigation.navigate({ name: TRANSFER, merge: true })}
+        profile={() => navigation.navigate({name: PROFILE, merge: true})}
+    />
 }
 
 const Transfer = () => {

@@ -1,17 +1,23 @@
-import React from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
+import React, {FC} from 'react';
+import { View, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import Logo from '../Logo/Logo';
 
 const img = require('../../assets/cat2.png');
 
-function Header(props) {
+interface HeaderProps{
+    navigate: () => void
+}
+
+const Header:FC<HeaderProps> = ({navigate}):JSX.Element => {
     return (
         <View style={styles.container}>
             <View style={styles.V1}>
                 <Logo />
             </View>
             <View style={styles.V2}>
-                <ImageBackground source={img} style={styles.userImg} />
+                <TouchableOpacity onPress={() => navigate()}>
+                    <ImageBackground source={img} style={styles.userImg} />
+                </TouchableOpacity>
             </View>
         </View>
     );
