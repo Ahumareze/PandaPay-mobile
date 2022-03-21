@@ -20,7 +20,7 @@ function Transfer(props) {
 
     return (
         <View style={styles.container}>
-            <UserDetails username={recieverDetails.username} email={recieverDetails.email} />
+            <UserDetails username={recieverDetails.username} email={recieverDetails.email} nft={recieverDetails.nft} />
             <View style={styles.main}>
                 <AmountInput />
                 <Button title='Continue' onClick={() => console.log(amount)} />

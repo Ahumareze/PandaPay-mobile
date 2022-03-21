@@ -2,17 +2,17 @@ import React, {FC} from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { black } from '../../../../utils/colors';
 
-const img = require('../../../../assets/cat1.png');
-
 interface UserDetailsProps{
     username: string,
-    email: string
+    email: string,
+    nft: any
 }
 
-const UserDetails:FC<UserDetailsProps> = ({username, email}):JSX.Element => {
+const UserDetails:FC<UserDetailsProps> = ({username, email, nft}):JSX.Element => {
+    console.log(typeof(nft))
     return (
         <View style={styles.container}>
-            <ImageBackground source={img} style={styles.userPic}  />
+            <ImageBackground source={nft} style={styles.userPic}  />
             <View style={styles.detailsContainer}>
                 <Text style={styles.username}>{username}</Text>
                 <Text style={styles.email}>{email}</Text>
