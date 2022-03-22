@@ -27,9 +27,14 @@ function Recieve(props) {
     )
     if(gen){
         view = (
-            <View>
-                <QRCode value={amount} size={200} bgColor='red' fgColor='purple' />
-            </View>
+            <>
+                <View>
+                    <View style={styles.qrContainer}>
+                        <QRCode value={amount} size={200} bgColor='#fff' fgColor='#000' />
+                    </View>
+                </View>
+                <Text>Cancle</Text>
+            </>
         )
     }
 
@@ -53,6 +58,12 @@ const styles = StyleSheet.create({
         color: black,
         paddingTop: 30,
         textAlign: 'center'
+    },
+    qrContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 40
     }
 })
 
