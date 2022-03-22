@@ -32,7 +32,7 @@ function TransferScreenView(props) {
     }
 
     const read = (e) => {
-        console.log(e)
+        console.log(e + 'hello')
     }
 
     return (
@@ -42,12 +42,21 @@ function TransferScreenView(props) {
 
             <QRCodeScanner 
                 onRead={r => read(r)}
+                // flashMode={RNCamera.Constants.FlashMode.torch}
+                topContent={
+                <Text style={styles.centerText}>
+                    Go to{' '}
+                    <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
+                    your computer and scan the QR code.
+                </Text>
+                }
                 bottomContent={
                     <TouchableOpacity style={styles.buttonTouchable}>
                         <Text style={styles.buttonText}>OK. Got it!</Text>
                     </TouchableOpacity>
                 }
             />
+
         </View>
     );
 }
