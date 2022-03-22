@@ -33,7 +33,7 @@ function Recieve(props) {
                         <QRCode value={amount} size={200} bgColor='#fff' fgColor='#000' />
                     </View>
                 </View>
-                <Text>Cancle</Text>
+                {/* <Text>Cancle</Text> */}
             </>
         )
     }
