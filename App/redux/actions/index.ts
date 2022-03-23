@@ -1,5 +1,5 @@
 import {getReciever, dismiss, setSendAmount, setIsScan, getOfflineData} from './actions';
-import { init, signup } from './auth';
+import { init, signup, logout } from './auth';
 
 export {
     getReciever,
@@ -9,5 +9,6 @@ export {
     getOfflineData,
 
     init,
-    signup
+    signup,
+    logout
 }

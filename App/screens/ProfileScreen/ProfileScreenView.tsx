@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 //Imported Components
 import ProfilePic from './components/ProfilePic';
@@ -14,6 +14,7 @@ const img = require('../../assets/cat2.png');
 
 function ProfileScreenView(props) {
     const dispatch = useDispatch();
+    const offlineData = useSelector((state: any) => state.mainReducer.offlineData);
 
     useEffect(() => {
         dispatch(actions.getOfflineData())
@@ -24,8 +25,8 @@ function ProfileScreenView(props) {
             <View style={styles.container}>
                 <View style={styles.userProfileDetails}>
                     <ProfilePic img={img} />
-                    <Text style={styles.username}>Fvture_the_creatvr</Text>
-                    <Text style={styles.email}>futurethecreator@gmail.com</Text>
+                    <Text style={styles.username}>{offlineData.username}</Text>
+                    <Text style={styles.email}>{offlineData.email}</Text>
                 </View>
                 <ProfileSettings />
                 <AccountSettings />

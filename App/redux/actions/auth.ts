@@ -33,8 +33,8 @@ const signup = (data) => {
                 dispatch(setData(r.data))
             })
             .catch(e => {
-                console.log(e);
-                dispatch(setLoading(false))
+                dispatch(setLoading(false));
+                dispatch(setAuthError(e))
             })
     }
 };
@@ -54,6 +54,20 @@ const setData = (response: any) => {
             id: response.id,
             nft: JSON.stringify(response.nft)
         }))
+    }
+};
+
+const setAuthError = (value: string) => {
+    return{
+        type: actions.SETAUTHERR,
+        value
+    }
+}
+
+const logout = () => {
+    return (dispatch: any) => {
+        AsyncStorage.clear();
+        dispatch(setToken(null));
     }
 }
 
@@ -80,5 +94,6 @@ const setUserData = (value: object) => {
 
 export {
     init,
-    signup
+    signup,
+    logout,
 }
