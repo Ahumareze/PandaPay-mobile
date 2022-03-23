@@ -1,4 +1,4 @@
-import {getReciever, dismiss, setSendAmount, setIsScan} from './actions';
+import {getReciever, dismiss, setSendAmount, setIsScan, getOfflineData} from './actions';
 import { init, signup } from './auth';
 
 export {
@@ -6,6 +6,7 @@ export {
     setSendAmount,
     dismiss,
     setIsScan,
+    getOfflineData,
 
     init,
     signup

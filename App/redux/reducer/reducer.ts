@@ -4,7 +4,8 @@ const initialState = {
     reciever: null,
     sendAmount: null,
     loading: false,
-    isScan: false
+    isScan: false.valueOf,
+    offlineData: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,6 +18,8 @@ const reducer = (state = initialState, action) => {
             return {...state, sendAmount: action.value};
         case actionTypes.SETISSCAN:
             return {...state, isScan: action.value};
+        case actionTypes.SETOFFLINEDATA:
+            return {...state, offlineData: action.value}
     }
     return state;
 }

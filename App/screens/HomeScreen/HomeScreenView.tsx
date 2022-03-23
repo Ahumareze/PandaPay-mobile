@@ -35,7 +35,7 @@ const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
         </>
     )
     if(openRecieve){
-        view = <Recieve />
+        view = <Recieve onClose={() => setOpenRecieve(false)} />
     }
 
     return (

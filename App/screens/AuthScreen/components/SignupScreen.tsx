@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 //Imported utilities
 import { Input, Loader, Logo } from '../../../components';
 import { height, width } from '../../../utils/dimension';
+import * as actions from '../../../redux/actions';
 
 //Imported components
 import FormTitle from './FormTitle';
@@ -24,7 +25,7 @@ const SignupScreen:FC<SignupScreenProps> = ({nextPage}):JSX.Element => {
     const [password, setPassword] = useState<string>();
 
     const submit = () => {
-        console.log(username, email, password)
+        dispatch(actions.signup({username, email, password}))
     }
 
     let view = (

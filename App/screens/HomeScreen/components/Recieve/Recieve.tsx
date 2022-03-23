@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React, { useState, FC } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Button } from '../../../../components';
 import AmountInput from '../../../../components/AmountInput/AmountInput';
-import { black } from '../../../../utils/colors';
+import { black, red } from '../../../../utils/colors';
 import { height } from '../../../../utils/dimension';
 import QRCode from 'react-native-qrcode-svg';
 
 const img = require('../../../../assets/cat4.jpg');
 
-function Recieve(props) {
+interface RecieveProps {
+    onClose: () => void
+}
+
+const Recieve:FC<RecieveProps> = ({onClose}) => {
     const [amount, setAmount] = useState<string>();
     const [gen, setGen] = useState<boolean>();
 
@@ -25,6 +29,11 @@ function Recieve(props) {
         <>
             <AmountInput title='Enter amount' onChange={(e) => setValue(e)} />
             <Button title='Request payment' onClick={() => generateQrcode()} />
+            <TouchableOpacity onPress={() => onClose()}>
+                <View style={styles.cancleRecieveContainer}>
+                    <Text style={styles.closeText}>Close</Text>
+                </View>
+            </TouchableOpacity>
         </>
     )
     if(gen){
@@ -80,6 +89,18 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 170,
         right: 10
+    },
+    cancleRecieveContainer: {
+        height: 50,
+        width: '100%',
+        marginTop: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    closeText: {
+        fontSize: 18,
+        color: red
     }
 })
 

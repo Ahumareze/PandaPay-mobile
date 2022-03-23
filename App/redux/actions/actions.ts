@@ -3,6 +3,7 @@ import * as actionTypes from './actionTypes';
 
 //TextData
 import users from '../../testData/users';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //Test components
 const findUser = (username: string) => {
@@ -19,6 +20,23 @@ const getReciever = (username: string) => {
         dispatch(setReciever(user));
         
         dispatch(setLoading(false));
+    }
+};
+
+const getOfflineData = () => {
+    return async (dispatch: any) => {
+        const username = await AsyncStorage.getItem('username');
+        const email = await AsyncStorage.getItem('email');
+        const id = await AsyncStorage.getItem('id');
+        const nft = await AsyncStorage.getItem('nft');
+
+        const data = {
+            username,
+            email,
+            id,
+            nft
+        }
+        console.log(data)
     }
 }
 
@@ -61,5 +79,6 @@ export {
     getReciever,
     dismiss,
     setSendAmount,
-    setIsScan
+    setIsScan,
+    getOfflineData
 }

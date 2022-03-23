@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 //Imported Components
 import ProfilePic from './components/ProfilePic';
@@ -7,10 +8,17 @@ import {width, height} from '../../utils/dimension';
 import { black, white } from '../../utils/colors';
 import ProfileSettings from './components/ProfileSettings/ProfileSettings';
 import AccountSettings from './components/AccountSettings/AccountSettings';
+import * as actions from '../../redux/actions';
 
 const img = require('../../assets/cat2.png');
 
 function ProfileScreenView(props) {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(actions.getOfflineData())
+    }, [])
+
     return (
         <ScrollView>
             <View style={styles.container}>
