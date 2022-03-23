@@ -25,6 +25,7 @@ const init = () => {
 const signup = (data) => {
     return (dispatch: any) => {
         dispatch(setLoading(true));
+        dispatch(setAuthError(null))
 
         //post data to backend
         axios.post(dbUrl + '/signup', data)
@@ -33,26 +34,35 @@ const signup = (data) => {
                 dispatch(setData(r.data))
             })
             .catch(e => {
+                if(e.response.data){
+                    dispatch(setAuthError(e.response.data.message))
+                }else{
+                    dispatch(setAuthError('network error'))
+                }
                 dispatch(setLoading(false));
-                dispatch(setAuthError('Network error'))
             })
     }
 };
 
 const login = (data) => {
+    
     return (dispatch: any) => {
         dispatch(setLoading(true));
+        dispatch(setAuthError(null))
 
         //Post data to backend
         axios.post(dbUrl + '/login', data)
             .then(r => {
-                console.log(r.data);
+                dispatch(setData(r.data))
                 dispatch(setLoading(false))
             })
             .catch(e => {
-                console.log({...e});
+                if(e.response.data){
+                    dispatch(setAuthError(e.response.data.message))
+                }else{
+                    dispatch(setAuthError('network error'))
+                }
                 dispatch(setLoading(false));
-                dispatch(setAuthError('network error'))
             })
     }
 }
@@ -61,7 +71,7 @@ const setData = (response: any) => {
     return (dispatch: any) => {
         AsyncStorage.setItem('username', response.username);
         AsyncStorage.setItem('email', response.email);
-        AsyncStorage.setItem('nft', response.nft);
+        AsyncStorage.setItem('nft', JSON.stringify(response.nft));
         AsyncStorage.setItem('id', response.id);
         AsyncStorage.setItem('token', response.token);
 
@@ -70,7 +80,7 @@ const setData = (response: any) => {
             username: response.username,
             email: response.email,
             id: response.id,
-            nft: JSON.stringify(response.nft)
+            nft: response.nft
         }))
     }
 };
