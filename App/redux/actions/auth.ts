@@ -5,7 +5,9 @@ const init = () => {
     return (dispatch: any) => {
         AsyncStorage.getItem('userData')
             .then(r => {
-                console.log(r)
+                if(r){
+                    // dispatch(setUserData(r))
+                }
             })
             .catch(e => {
                 console.log(e)
