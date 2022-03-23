@@ -3,8 +3,20 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const init = () => {
     return (dispatch: any) => {
-        const data = AsyncStorage.getItem('userId');
-        console.log(data)    
+        AsyncStorage.getItem('userData')
+            .then(r => {
+                console.log(r)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+    }
+}
+
+const setUserData = (value: object) => {
+    return {
+        type: actions.SETUSERDATA,
+        value
     }
 }
 

@@ -13,12 +13,14 @@ import thunk from 'redux-thunk';
 
 //Imported reducers
 import reducer from './App/redux/reducer/reducer';
+import authReducer from './App/redux/reducer/authReducer';
 
 //Redux configuration
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    mainReducer: reducer
+    mainReducer: reducer,
+    authReducer: authReducer
 });
 
 const store = createStore(
