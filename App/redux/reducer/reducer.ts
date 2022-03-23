@@ -4,7 +4,7 @@ const initialState = {
     reciever: null,
     sendAmount: null,
     loading: false,
-    isScan: false.valueOf,
+    isScan: false,
     offlineData: {}
 };
 

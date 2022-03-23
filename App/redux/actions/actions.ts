@@ -36,7 +36,14 @@ const getOfflineData = () => {
             id,
             nft
         }
-        console.log(data)
+        dispatch(setOfflineData(data))
+    }
+}
+
+const setOfflineData = (data: object) => {
+    return{
+        type: actionTypes.SETOFFLINEDATA,
+        value: data
     }
 }
 
