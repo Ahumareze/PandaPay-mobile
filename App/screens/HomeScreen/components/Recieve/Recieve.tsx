@@ -4,7 +4,6 @@ import { Button } from '../../../../components';
 import AmountInput from '../../../../components/AmountInput/AmountInput';
 import { black } from '../../../../utils/colors';
 import { height } from '../../../../utils/dimension';
-import QRCode from 'react-native-qrcode-generator';
 
 function Recieve(props) {
     const [amount, setAmount] = useState<string>();
@@ -30,7 +29,6 @@ function Recieve(props) {
             <>
                 <View>
                     <View style={styles.qrContainer}>
-                        <QRCode value={amount} size={200} bgColor='#fff' fgColor='#000' />
                     </View>
                 </View>
                 {/* <Text>Cancle</Text> */}
