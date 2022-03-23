@@ -11,6 +11,7 @@ import {AuthScreenContainer} from './App/screens';
 
 function App(props) {
   const dispatch = useDispatch();
+  const token = useSelector((state: any) => state.authReducer.token)
 
   useEffect(() => {
     dispatch(actions.init())
@@ -19,7 +20,7 @@ function App(props) {
   return (
     <View>
       <StatusBar {...props} barStyle={'dark-content'} animated={true} backgroundColor="#fff" />
-      <Navigator />
+      {token ? <Navigator/> : <AuthScreenContainer/>}
     </View>
   );
 }

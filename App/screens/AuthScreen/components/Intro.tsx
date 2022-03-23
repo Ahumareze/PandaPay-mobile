@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     main: {
         width: '100%',
         position: 'absolute',
-        bottom: 40
+        bottom: 40,
+        left: 10
     },
     mainText: {
         width: 250,
