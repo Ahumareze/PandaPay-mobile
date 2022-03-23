@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { black, white } from '../../utils/colors';
+import { black, red, white } from '../../utils/colors';
 
 //Imported Compoents
 import Main from './components/Main/Main';
@@ -13,16 +13,19 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
 
 import { height, width } from '../../utils/dimension';
+import * as actions from '../../redux/actions';
 
 function TransferScreenView(props) {
+    const dispatch = useDispatch();
     const reciever = useSelector((state: any) => state.mainReducer.reciever);
     const loading = useSelector((state: any) => state.mainReducer.loading);
+    const openQr = useSelector((state: any) => state.mainReducer.isScan);
 
     const [data, setData] = useState();
 
     useEffect(() => {
-        console.log(reciever)
-    }, [reciever]);
+        console.log(openQr)
+    }, [openQr]);
 
     let view = (
         <Main />
@@ -34,19 +37,13 @@ function TransferScreenView(props) {
     }
 
     let qrView = (
-        <QRCodeScanner 
+        <QRCodeScanner
+            containerStyle={styles.qrContainer}
+            cameraContainerStyle={styles.cameraStyle}
             onRead={r => read(r)}
-            // flashMode={RNCamera.Constants.FlashMode.torch}
-            topContent={
-            <Text style={styles.centerText}>
-                Go to{' '}
-                <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-                your computer and scan the QR code.
-            </Text>
-            }
             bottomContent={
                 <TouchableOpacity style={styles.buttonTouchable} onPress={() => setData(null)} >
-                    <Text style={styles.buttonText}>OK. Got it!</Text>
+                    <Button title='Cancle' onClick={() => dispatch(actions.setIsScan(false))} />
                 </TouchableOpacity>
             }
         />
@@ -62,12 +59,17 @@ function TransferScreenView(props) {
         setData(e)
     }
 
-    return (
+    const container = (
         <View style={styles.container}>
-            {/* <Text style={styles.title}>New Transaction</Text>
-            {!loading ? view : <Loader />} */}
-            {qrView}
+            <Text style={styles.title}>New Transaction</Text>
+            {!loading ? view : <Loader />}
         </View>
+    )
+
+    return (
+        <>
+            {openQr ? qrView : container}
+        </>
     );
 }
 
@@ -78,7 +80,8 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingLeft: 10,
         width: width,
-        height: height
+        height: height,
+        overflow: 'hidden'
     },
     title: {
         fontSize: 18,
@@ -86,23 +89,25 @@ const styles = StyleSheet.create({
         color: black,
         textAlign: 'center'
     },
-    centerText: {
-        flex: 1,
-        fontSize: 18,
-        padding: 32,
-        color: '#777'
-      },
-      textBold: {
-        fontWeight: '500',
-        color: '#000'
-      },
-      buttonText: {
+    qrContainer: {
+        backgroundColor: white
+    },
+    cameraStyle: {
+        height: 300,
+        width: width - 40,
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        borderRadius: 15,
+        overflow: 'hidden'
+    },
+    buttonText: {
         fontSize: 21,
-        color: 'rgb(0,122,255)'
-      },
-      buttonTouchable: {
-        padding: 16
-      }
+        color: red,
+    },
+    buttonTouchable: {
+        paddingTop: 0,
+        width: width - 40
+    }
 })
 
 export default TransferScreenView;

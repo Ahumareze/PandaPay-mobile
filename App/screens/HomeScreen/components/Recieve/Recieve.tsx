@@ -6,7 +6,7 @@ import { black } from '../../../../utils/colors';
 import { height } from '../../../../utils/dimension';
 import QRCode from 'react-native-qrcode-svg';
 
-const img = 'https://res.cloudinary.com/ahumareze/image/upload/v1638211548/a5wrllvag4a12vrwkqmm.png';
+const img = require('../../../../assets/cat4.jpg');
 
 function Recieve(props) {
     const [amount, setAmount] = useState<string>();
@@ -33,13 +33,16 @@ function Recieve(props) {
                 <View>
                     <View style={styles.qrContainer}>
                         <QRCode 
-                            value={amount} 
-                            logo={{uri: img}}
-                            logoSize={30} 
+                            value='300'
+                            logo={img}
+                            logoSize={50}
+                            size={200} 
                         />
                     </View>
                 </View>
-                {/* <Text>Cancle</Text> */}
+                <View style={styles.cancleContainer}>
+                    <Button title='Cancle' onClick={() => setGen(false)} />
+                </View>
             </>
         )
     }
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
         height: height,
         width: '100%',
         paddingRight: 10,
-        paddingLeft: 10
+        paddingLeft: 10,
     },
     title: {
         fontSize: 18,
@@ -69,7 +72,14 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 40
+        paddingTop: 150,
+    },
+    cancleContainer: {
+        height: 50,
+        width: '100%',
+        position: 'absolute',
+        bottom: 170,
+        right: 10
     }
 })
 

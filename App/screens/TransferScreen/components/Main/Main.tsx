@@ -16,6 +16,10 @@ function Main(props) {
 
     const setReciever = () => {
         dispatch(actions.getReciever(user))
+    };
+
+    const openQr = () => {
+        dispatch(actions.setIsScan(true))
     }
 
     return (
@@ -24,7 +28,7 @@ function Main(props) {
                 <Input label='Enter recieving username' type={'default'} secure={false} onChange={(e) => setUser(e)} />
                 <Button title='Continue' onClick={() => setReciever()}  />
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => openQr()} >
                 <View style={styles.QrCodeSelect}>
                     <Text style={styles.qrText}>Scan QRcode</Text>
                     <Icon name="scan1" size={40} color={black} style={styles.icon} />

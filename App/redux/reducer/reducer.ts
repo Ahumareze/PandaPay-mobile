@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     reciever: null,
     sendAmount: null,
-    loading: false
+    loading: false,
+    isScan: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,7 +14,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SETLOADING:
             return {...state, loading: action.value};
         case actionTypes.SETSENDAMOUNT:
-            return {...state, sendAmount: action.value}
+            return {...state, sendAmount: action.value};
+        case actionTypes.SETISSCAN:
+            return {...state, isScan: action.value};
     }
     return state;
 }

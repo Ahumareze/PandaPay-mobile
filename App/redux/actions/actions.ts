@@ -50,8 +50,16 @@ const setReciever = (value: object) => {
     }
 };
 
+const setIsScan = (value: boolean) => {
+    return{
+        type: actionTypes.SETISSCAN,
+        value
+    }
+}
+
 export {
     getReciever,
     dismiss,
-    setSendAmount
+    setSendAmount,
+    setIsScan
 }
