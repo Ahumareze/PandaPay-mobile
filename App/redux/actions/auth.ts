@@ -34,10 +34,28 @@ const signup = (data) => {
             })
             .catch(e => {
                 dispatch(setLoading(false));
-                dispatch(setAuthError(e))
+                dispatch(setAuthError('Network error'))
             })
     }
 };
+
+const login = (data) => {
+    return (dispatch: any) => {
+        dispatch(setLoading(true));
+
+        //Post data to backend
+        axios.post(dbUrl + '/login', data)
+            .then(r => {
+                console.log(r.data);
+                dispatch(setLoading(false))
+            })
+            .catch(e => {
+                console.log({...e});
+                dispatch(setLoading(false));
+                dispatch(setAuthError('network error'))
+            })
+    }
+}
 
 const setData = (response: any) => {
     return (dispatch: any) => {
@@ -96,4 +114,6 @@ export {
     init,
     signup,
     logout,
+    setAuthError,
+    login
 }

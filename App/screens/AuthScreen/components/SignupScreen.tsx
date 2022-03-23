@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 //Imported utilities
-import { Input, Loader, Logo } from '../../../components';
+import { Input, Loader, Logo, Padding } from '../../../components';
 import { height, width } from '../../../utils/dimension';
 import * as actions from '../../../redux/actions';
 
@@ -11,6 +11,7 @@ import FormTitle from './FormTitle';
 import {Button} from '../../../components';
 import ExtraText from './extraText';
 import { useDispatch, useSelector } from 'react-redux';
+import { red } from '../../../utils/colors';
 
 interface SignupScreenProps{
     nextPage: (e: number) => void
@@ -26,12 +27,21 @@ const SignupScreen:FC<SignupScreenProps> = ({nextPage}):JSX.Element => {
     const [password, setPassword] = useState<string>();
 
     const submit = () => {
-        dispatch(actions.signup({username, email, password}))
+        if(username && email && password){
+            if(password.length > 6){
+                dispatch(actions.signup({username, email, password}))
+            }else{
+                dispatch(actions.setAuthError('Password too short'))
+            }
+        }else{
+            dispatch(actions.setAuthError('Missing fields'))
+        }
+        
     }
 
     let errorMessage;
     if(authErr){
-        errorMessage = <Text>{authErr}</Text>
+        errorMessage = <Text style={styles.errorM}>{authErr}</Text>
     }
 
     let view = (
@@ -41,6 +51,7 @@ const SignupScreen:FC<SignupScreenProps> = ({nextPage}):JSX.Element => {
             <Input label='Email' type={'email-address'} secure={false} onChange={(e) => setEmail(e)} />
             <Input label='Password' type={'default'} secure onChange={(e) => setPassword(e)} />
             {errorMessage}
+            <Padding padding={30} />
             <Button title='Continue' onClick={() => submit()} />
             <ExtraText text='already have an account?' page='log in' onClick={() => nextPage(2)} />
         </View>
@@ -67,6 +78,12 @@ const styles = StyleSheet.create({
         width: width - 30,
         marginRight: 'auto',
         marginLeft: 'auto'
+    },
+    errorM: {
+        color: red,
+        textAlign: 'center',
+        paddingTop: 10,
+        fontSize: 17
     }
 })
 
