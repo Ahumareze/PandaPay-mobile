@@ -10,9 +10,11 @@ import { dbUrl } from '../../utils/urls';
 //Test components
 const getUserData = () => {
     return async (dispatch: any) => {
+
         //get id from local storage
         const id = await AsyncStorage.getItem('id');
         console.log(id);
+        
     }
 }
 
