@@ -17,7 +17,7 @@ const getUserData = () => {
 
         axios.post(dbUrl + '/user', {id})
             .then(r => {
-                console.log(r.data);
+                dispatch(setUserData(r.data));
                 dispatch(setLoading(false));
             })
             .catch(e => {
@@ -26,6 +26,13 @@ const getUserData = () => {
                 dispatch(setErrScreen(true))
             })
 
+    }
+};
+
+const setUserData = (value: any) => {
+    return{
+        type: actionTypes.SETUSERDATA,
+        value
     }
 }
 

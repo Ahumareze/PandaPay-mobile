@@ -8,7 +8,7 @@ import QRCode from 'react-native-qrcode-svg';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../../../redux/actions';
 
-const img = require('../../../../assets/cat4.jpg');
+import {images} from '../../../../utils/images';
 
 interface RecieveProps {
     onClose: () => void
@@ -33,7 +33,7 @@ const Recieve:FC<RecieveProps> = ({onClose}) => {
 
     let view = (
         <>
-            <AmountInput title='Enter amount' onChange={(e) => setAmount(e)} />
+            <AmountInput amount={amount} title='Enter amount' onChange={(e) => setAmount(e)} />
             {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
             <Padding padding={!errorMessage ? 30 : 15 } />
             <Button title='Request payment' onClick={() => generateQrcode()} />
@@ -51,7 +51,7 @@ const Recieve:FC<RecieveProps> = ({onClose}) => {
                     <View style={styles.qrContainer}>
                         <QRCode 
                             value={`${offlineData.username} ${offlineData.email} ${offlineData.nft} ${offlineData.id} ${amount}`}
-                            logo={img}
+                            logo={images[offlineData.nft]}
                             logoSize={50}
                             size={200} 
                         />

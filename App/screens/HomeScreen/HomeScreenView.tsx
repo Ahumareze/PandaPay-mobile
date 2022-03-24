@@ -1,10 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
 //Imported Components
-import { Header } from '../../components';
+import { Header, Loader } from '../../components';
 import { white } from '../../utils/colors';
-import {width} from '../../utils/dimension';
+import {height, width} from '../../utils/dimension';
 
 import Balance from './components/Balance';
 import Recieve from './components/Recieve/Recieve';
@@ -22,6 +22,7 @@ const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
     const dispatch = useDispatch();
     const loading = useSelector((state: any) => state.mainReducer.loading);
     const errorScreen = useSelector((state: any) => state.mainReducer.errorScreen);
+    const userData = useSelector((state: any) => state.mainReducer.userData);
     const [openRecieve, setOpenRecieve] = useState<boolean>(false);
 
     useEffect(() => {
@@ -37,20 +38,22 @@ const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
     }
 
     let view = (
-        <>
-            <Balance />
+        <ScrollView>
+            <Balance balance={userData.balance} />
             <QuickTransaction onSend={() => onSend()} onRecieve={() => onRecieve()} />
-            <Transactions />
-        </>
+            <Transactions history={userData.history} />
+        </ScrollView>
     )
     if(openRecieve){
         view = <Recieve onClose={() => setOpenRecieve(false)} />
+    }else if(errorScreen){
+        view = <Text>Error Screen</Text>
     }
 
     return (
         <View style={styles.container}>
             <Header navigate={() => profile()} />
-            {view}
+            {!loading ? view : <Loader />}
         </View>
     );
 }
@@ -60,7 +63,8 @@ const styles = StyleSheet.create({
         backgroundColor: white,
         paddingRight: 10,
         paddingLeft: 10,
-        width: width
+        width: width,
+        height: height - 70
     }
 })
 

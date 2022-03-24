@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import TransactionItem from './TransactionItem';
 
@@ -7,7 +7,20 @@ import {images} from '../../../../utils/images';
 import { black, darkGreen, strokeColor } from '../../../../utils/colors';
 import { width } from '../../../../utils/dimension';
 
-function Transactions(props) {
+interface TransactionProps{
+    history: any
+}
+
+const Transactions:FC<TransactionProps> = ({history}):JSX.Element => {
+
+    let view = <Text>No transaction made</Text>
+    if(history.length > 0){
+        <>
+            <TransactionItem img={images[1]} username='stephen_curry' date='13 Mar 2022' amount={230} type='credit' />
+            <TransactionItem img={images[2]} username='kalme_steve' date='12 Jan 2022' amount={140} type='debit' />
+        </>
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.titleContainer}>
@@ -15,8 +28,7 @@ function Transactions(props) {
                 <Text style={styles.text2}> History</Text>
             </View>
             <View style={styles.section}>
-                <TransactionItem img={images[1]} username='stephen_curry' date='13 Mar 2022' amount={230} type='credit' />
-                <TransactionItem img={images[2]} username='kalme_steve' date='12 Jan 2022' amount={140} type='debit' />
+                {view}
             </View>
         </View>
     );

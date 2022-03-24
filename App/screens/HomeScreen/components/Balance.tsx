@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { black } from '../../../utils/colors';
 
-function Balance(props) {
+interface BalanceProps{
+    balance: number
+}
+
+const Balance:FC<BalanceProps> = ({balance}):JSX.Element => {
     return (
         <View style={styles.container}>
             <Text style={styles.accText}>Account balance:</Text>
-            <Text style={styles.accBal}>$300</Text>
+            <Text style={styles.accBal}>${balance}</Text>
         </View>
     );
 }
