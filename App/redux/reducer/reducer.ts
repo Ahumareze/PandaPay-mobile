@@ -8,6 +8,7 @@ const initialState = {
     errorMessage: null,
     offlineData: {},
     userData: {},
+    errorScreen: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +27,8 @@ const reducer = (state = initialState, action) => {
             return {...state, errorMessage: action.value};
         case actionTypes.SETUSERDATA:
             return {...state, userData: action.value};
+        case actionTypes.SETERRORSCREEN:
+            return {...state, errorScreen: action.value};
     }
     return state;
 }

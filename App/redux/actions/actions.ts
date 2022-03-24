@@ -23,6 +23,7 @@ const getUserData = () => {
             .catch(e => {
                 console.log(e);
                 dispatch(setLoading(false));
+                dispatch(setErrScreen(true))
             })
 
     }
