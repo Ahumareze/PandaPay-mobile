@@ -8,10 +8,9 @@ import axios from 'axios';
 import { dbUrl } from '../../utils/urls';
 
 //Test components
-const findUser = (username: string) => {
-    const user = users.find(user => user.username === username);
-    return user
-} 
+const getUserData = () => {
+    
+}
 
 const getReciever = (email: string) => {
     return (dispatch: any) => {
