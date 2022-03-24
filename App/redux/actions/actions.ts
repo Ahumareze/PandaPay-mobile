@@ -52,7 +52,7 @@ const getReciever = (email: string) => {
         //Run function to fetch user from database
         axios.post(dbUrl + '/reciever', {email})
             .then(r => {
-                dispatch(setReciever(r.data))
+                dispatch(setReciever({...r.data, id: r.data._id}))
                 dispatch(setLoading(false));
                 dispatch(setErrorMessage(null))
             })
@@ -109,6 +109,16 @@ const qrData = (data: any) => {
         dispatch(setSendAmount(arr[4]))
         dispatch(setReciever(reciever));
     }
+};
+
+const transfer = (sender: string, reciever: string, amount: string) => {
+    return (dispatch: any) => {
+        if(amount){
+
+        }else{
+            dispatch(setErrorMessage('please enter amount'))
+        }
+    }
 }
 
 const setOfflineData = (data: object) => {
@@ -161,5 +171,6 @@ export {
     setIsScan,
     getOfflineData,
     setErrorMessage,
-    qrData
+    qrData,
+    transfer
 }
