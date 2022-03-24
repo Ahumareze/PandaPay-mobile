@@ -1,6 +1,6 @@
 import React, { useState, FC } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { Button } from '../../../../components';
+import { Button, Padding } from '../../../../components';
 import AmountInput from '../../../../components/AmountInput/AmountInput';
 import { black, red } from '../../../../utils/colors';
 import { height } from '../../../../utils/dimension';
@@ -28,6 +28,7 @@ const Recieve:FC<RecieveProps> = ({onClose}) => {
     let view = (
         <>
             <AmountInput title='Enter amount' onChange={(e) => setValue(e)} />
+            <Padding padding={30} />
             <Button title='Request payment' onClick={() => generateQrcode()} />
             <TouchableOpacity onPress={() => onClose()}>
                 <View style={styles.cancleRecieveContainer}>

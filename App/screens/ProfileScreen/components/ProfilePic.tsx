@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import { View, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
-import { darkGreen } from '../../../utils/colors';
+import { darkGreen, withdrawColor } from '../../../utils/colors';
 
 interface ProfilePicProps{
     img: any
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         height: 120,
         width: 120,
         borderRadius: 60,
-        backgroundColor: darkGreen,
+        backgroundColor: withdrawColor,
         marginRight: 'auto',
         marginLeft: 'auto',
         overflow: 'hidden',

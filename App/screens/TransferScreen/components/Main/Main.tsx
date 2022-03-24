@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 //Imported Components
-import { Button, Input } from '../../../../components';
+import { Button, Input, Padding } from '../../../../components';
 import { black } from '../../../../utils/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 
@@ -26,6 +26,7 @@ function Main(props) {
         <View>
             <View style={styles.Form}>
                 <Input label='Enter recieving username' type={'default'} secure={false} onChange={(e) => setUser(e)} />
+                <Padding padding={30} />
                 <Button title='Continue' onClick={() => setReciever()}  />
             </View>
             <TouchableOpacity onPress={() => openQr()} >

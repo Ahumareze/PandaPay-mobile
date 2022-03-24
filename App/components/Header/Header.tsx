@@ -1,14 +1,26 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import { View, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import Logo from '../Logo/Logo';
 
-const img = require('../../assets/cat2.png');
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import {images} from '../../utils/images';
+import * as actions from '../../redux/actions';
+import { withdrawColor } from '../../utils/colors';
 
 interface HeaderProps{
     navigate: () => void
 }
 
 const Header:FC<HeaderProps> = ({navigate}):JSX.Element => {
+    const dispatch = useDispatch();
+    const offlineData = useSelector((state: any) => state.mainReducer.offlineData);
+
+    useEffect(() => {
+        dispatch(actions.getOfflineData());
+    }, [])
+
     return (
         <View style={styles.container}>
             <View style={styles.V1}>
@@ -16,7 +28,7 @@ const Header:FC<HeaderProps> = ({navigate}):JSX.Element => {
             </View>
             <View style={styles.V2}>
                 <TouchableOpacity onPress={() => navigate()}>
-                    <ImageBackground source={img} style={styles.userImg} />
+                    <ImageBackground source={images[offlineData.nft]} style={styles.userImg} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -43,7 +55,7 @@ const styles = StyleSheet.create({
         height: 30,
         width: 30,
         borderRadius: 20,
-        backgroundColor: 'red',
+        backgroundColor: withdrawColor,
         overflow: 'hidden'
     }
 })
