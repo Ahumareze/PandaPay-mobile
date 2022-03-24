@@ -9,8 +9,10 @@ import { dbUrl } from '../../utils/urls';
 
 //Test components
 const getUserData = () => {
-    return (dispatch: any) => {
-        
+    return async (dispatch: any) => {
+        //get id from local storage
+        const id = await AsyncStorage.getItem('id');
+        console.log(id);
     }
 }
 
@@ -125,6 +127,7 @@ const setIsScan = (value: boolean) => {
 }
 
 export {
+    getUserData,
     getReciever,
     dismiss,
     setSendAmount,

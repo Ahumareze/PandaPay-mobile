@@ -76,12 +76,6 @@ const setData = (response: any) => {
         AsyncStorage.setItem('token', response.token);
 
         dispatch(setToken(response.token));
-        dispatch(setUserData({
-            username: response.username,
-            email: response.email,
-            id: response.id,
-            nft: response.nft
-        }))
     }
 };
 
@@ -109,13 +103,6 @@ const setLoading = (value: boolean) => {
 const setToken = (value: string) => {
     return {
         type: actions.SETTOKEN,
-        value
-    }
-}
-
-const setUserData = (value: object) => {
-    return {
-        type: actions.SETUSERDATA,
         value
     }
 }

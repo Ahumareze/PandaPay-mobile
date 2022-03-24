@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 //Imported Components
@@ -10,6 +10,8 @@ import Balance from './components/Balance';
 import Recieve from './components/Recieve/Recieve';
 import QuickTransaction from './components/QuickTransaction/QuickTransaction';
 import Transactions from './components/Transactions/Transactions';
+import * as actions from '../../redux/actions';
+import { useDispatch } from 'react-redux';
 
 interface HomeViewProps{
     send: () => void,
@@ -17,7 +19,12 @@ interface HomeViewProps{
 }
 
 const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
+    const dispatch = useDispatch();
     const [openRecieve, setOpenRecieve] = useState<boolean>(false);
+
+    useEffect(() => {
+        dispatch(actions.getUserData())
+    }, [])
 
     const onSend = () => {
         send()

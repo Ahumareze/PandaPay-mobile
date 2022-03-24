@@ -6,7 +6,8 @@ const initialState = {
     loading: false,
     isScan: false,
     errorMessage: null,
-    offlineData: {}
+    offlineData: {},
+    userData: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,7 +23,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SETOFFLINEDATA:
             return {...state, offlineData: action.value};
         case actionTypes.SETERR:
-            return {...state, errorMessage: action.value}
+            return {...state, errorMessage: action.value};
+        case actionTypes.SETUSERDATA:
+            return {...state, userData: action.value};
     }
     return state;
 }
