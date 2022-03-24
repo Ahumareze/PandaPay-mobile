@@ -16,9 +16,12 @@ function Transfer(props) {
     //Redux
     const amount = useSelector((state: any) => state.mainReducer.sendAmount);
     const recieverDetails = useSelector((state: any) => state.mainReducer.reciever);
+    const offlineData = useSelector((state: any) => state.mainReducer.offlineData);
     const dispatch = useDispatch();
 
-    console.log(recieverDetails)
+    const transfer = () => {
+        console.log(offlineData.id, recieverDetails.id, amount);
+    }
 
     return (
         <View style={styles.container}>
@@ -26,7 +29,7 @@ function Transfer(props) {
             <View style={styles.main}>
                 <AmountInput amount={amount} title='Enter amount' onChange={(e) => dispatch(actions.setSendAmount(e))} />
                 <Padding padding={30} />
-                <Button title='Continue' onClick={() => console.log(amount)} />
+                <Button title='Continue' onClick={() => transfer()} />
             </View>
             <TouchableOpacity onPress={() => dispatch(actions.dismiss())} >
                 <Text style={styles.dismiss}>Dismiss</Text>

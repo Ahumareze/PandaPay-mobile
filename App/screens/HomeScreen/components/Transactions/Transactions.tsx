@@ -5,13 +5,13 @@ import TransactionItem from './TransactionItem';
 //Imported utilities
 import {images} from '../../../../utils/images';
 import { black, darkGreen, strokeColor } from '../../../../utils/colors';
-import { width } from '../../../../utils/dimension';
+import { height, width } from '../../../../utils/dimension';
 
 interface TransactionProps{
     history: any
 }
 
-const Transactions:FC<TransactionProps> = ({history}):JSX.Element => {
+const Transactions:FC<TransactionProps> = ({history = []}):JSX.Element => {
 
     let view = <Text>No transaction made</Text>
     if(history.length > 0){
@@ -37,6 +37,7 @@ const Transactions:FC<TransactionProps> = ({history}):JSX.Element => {
 const styles = StyleSheet.create({
     container: {
         paddingBottom: 5,
+        height: height,
         width: '100%',
         borderWidth: 1,
         borderColor: strokeColor,
