@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         backgroundColor: white,
         paddingRight: 10,
         paddingLeft: 10,
-        width: width
+        width: width,
     }
 })
 
