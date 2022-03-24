@@ -20,7 +20,11 @@ function Transfer(props) {
     const dispatch = useDispatch();
 
     const transfer = () => {
-        console.log(offlineData.id, recieverDetails.id, amount);
+        console.log({
+            sender: offlineData.username,
+            reciever: recieverDetails.username,
+            amount
+        });
     }
 
     return (
