@@ -10,11 +10,28 @@ import { dbUrl } from '../../utils/urls';
 //Test components
 const getUserData = () => {
     return async (dispatch: any) => {
+        dispatch(setLoading(true));
 
         //get id from local storage
         const id = await AsyncStorage.getItem('id');
-        console.log(id);
-        
+
+        axios.post(dbUrl + '/user', {id})
+            .then(r => {
+                console.log(r.data);
+                dispatch(setLoading(false));
+            })
+            .catch(e => {
+                console.log(e);
+                dispatch(setLoading(false));
+            })
+
+    }
+}
+
+const setErrScreen = (value: boolean) => {
+    return{
+        type: actionTypes.SETERRORSCREEN,
+        value
     }
 }
 
