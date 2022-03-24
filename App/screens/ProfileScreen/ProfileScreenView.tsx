@@ -10,6 +10,8 @@ import ProfileSettings from './components/ProfileSettings/ProfileSettings';
 import AccountSettings from './components/AccountSettings/AccountSettings';
 import * as actions from '../../redux/actions';
 
+import {images} from '../../utils/images';
+
 const img = require('../../assets/cat2.png');
 
 function ProfileScreenView(props) {
@@ -17,14 +19,14 @@ function ProfileScreenView(props) {
     const offlineData = useSelector((state: any) => state.mainReducer.offlineData);
 
     useEffect(() => {
-        dispatch(actions.getOfflineData())
+        dispatch(actions.getOfflineData());
     }, [])
 
     return (
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.userProfileDetails}>
-                    <ProfilePic img={img} />
+                    <ProfilePic img={images[offlineData.nft]} />
                     <Text style={styles.username}>{offlineData.username}</Text>
                     <Text style={styles.email}>{offlineData.email}</Text>
                 </View>

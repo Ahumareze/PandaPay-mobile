@@ -34,7 +34,7 @@ const getOfflineData = () => {
             username,
             email,
             id,
-            nft
+            nft: JSON.parse(nft)
         }
         dispatch(setOfflineData(data))
     }
