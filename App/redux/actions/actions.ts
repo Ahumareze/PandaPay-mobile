@@ -4,6 +4,8 @@ import * as actionTypes from './actionTypes';
 //TextData
 import users from '../../testData/users';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { dbUrl } from '../../utils/urls';
 
 //Test components
 const findUser = (username: string) => {
@@ -11,17 +13,40 @@ const findUser = (username: string) => {
     return user
 } 
 
-const getReciever = (username: string) => {
+const getReciever = (email: string) => {
     return (dispatch: any) => {
         dispatch(setLoading(true));
 
+        //Validate email
+        if(email){
         //Run function to fetch user from database
-        const user = findUser(username);
-        dispatch(setReciever(user));
-        
-        dispatch(setLoading(false));
+        axios.post(dbUrl + '/user', {email})
+            .then(r => {
+                dispatch(setReciever(r.data))
+                dispatch(setLoading(false));
+                dispatch(setErrorMessage(null))
+            })
+            .catch(e => {
+                if(e.response){
+                    dispatch(setErrorMessage(e.response.data.message))
+                }else{
+                    dispatch(setErrorMessage('network error'))
+                }
+                dispatch(setLoading(false));
+            })
+        }else{
+            dispatch(setErrorMessage('please enter a valid email'));
+            dispatch(setLoading(false))
+        }
     }
 };
+
+const setErrorMessage = (value: string) => {
+    return{
+        type: actionTypes.SETERR,
+        value
+    }
+}
 
 const getOfflineData = () => {
     return async (dispatch: any) => {
@@ -37,6 +62,13 @@ const getOfflineData = () => {
             nft: JSON.parse(nft)
         }
         dispatch(setOfflineData(data))
+    }
+};
+
+const qrData = (data: any) => {
+    return (dispatch: any) => {
+        const arr = data.split(' ');
+        console.log(arr);
     }
 }
 
@@ -87,5 +119,7 @@ export {
     dismiss,
     setSendAmount,
     setIsScan,
-    getOfflineData
+    getOfflineData,
+    setErrorMessage,
+    qrData
 }

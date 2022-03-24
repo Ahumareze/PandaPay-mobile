@@ -5,6 +5,8 @@ import AmountInput from '../../../../components/AmountInput/AmountInput';
 import { black, red } from '../../../../utils/colors';
 import { height } from '../../../../utils/dimension';
 import QRCode from 'react-native-qrcode-svg';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from '../../../../redux/actions';
 
 const img = require('../../../../assets/cat4.jpg');
 
@@ -13,22 +15,27 @@ interface RecieveProps {
 }
 
 const Recieve:FC<RecieveProps> = ({onClose}) => {
+    const dispatch = useDispatch();
+    const offlineData = useSelector((state: any) => state.mainReducer.offlineData);
+    const errorMessage = useSelector((state: any) => state.mainReducer.errorMessage);
+
     const [amount, setAmount] = useState<string>();
     const [gen, setGen] = useState<boolean>();
 
-    const setValue = (e: string) => {
-        const value = JSON.parse(e);
-        setAmount(value)
-    };
-
     const generateQrcode = () => {
-        setGen(true)
+        dispatch(actions.setErrorMessage(null));
+        if(amount){
+            setGen(true)
+        }else{
+            dispatch(actions.setErrorMessage('please enter amount'))
+        }
     }
 
     let view = (
         <>
-            <AmountInput title='Enter amount' onChange={(e) => setValue(e)} />
-            <Padding padding={30} />
+            <AmountInput title='Enter amount' onChange={(e) => setAmount(e)} />
+            {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
+            <Padding padding={!errorMessage ? 30 : 15 } />
             <Button title='Request payment' onClick={() => generateQrcode()} />
             <TouchableOpacity onPress={() => onClose()}>
                 <View style={styles.cancleRecieveContainer}>
@@ -43,7 +50,7 @@ const Recieve:FC<RecieveProps> = ({onClose}) => {
                 <View>
                     <View style={styles.qrContainer}>
                         <QRCode 
-                            value='300'
+                            value={`${offlineData.username} ${offlineData.email} ${offlineData.nft} ${offlineData.id} ${amount}`}
                             logo={img}
                             logoSize={50}
                             size={200} 
@@ -102,6 +109,11 @@ const styles = StyleSheet.create({
     closeText: {
         fontSize: 18,
         color: red
+    },
+    errorMessage: {
+        color: red,
+        fontSize: 17,
+        paddingTop: 10
     }
 })
 

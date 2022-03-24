@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 //Imported Components
 import { Button, Input, Padding } from '../../../../components';
-import { black } from '../../../../utils/colors';
+import { black, red } from '../../../../utils/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import * as actions from '../../../../redux/actions';
@@ -13,6 +13,7 @@ import * as actions from '../../../../redux/actions';
 function Main(props) {
     const dispatch = useDispatch();
     const [user, setUser] = useState<string>();
+    const errorMessage = useSelector((state: any) => state.mainReducer.errorMessage);
 
     const setReciever = () => {
         dispatch(actions.getReciever(user))
@@ -25,8 +26,9 @@ function Main(props) {
     return (
         <View>
             <View style={styles.Form}>
-                <Input label='Enter recieving username' type={'default'} secure={false} onChange={(e) => setUser(e)} />
-                <Padding padding={30} />
+                <Input label='Enter recieving email' type={'email-address'} secure={false} onChange={(e) => setUser(e)} />
+                {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text> }
+                <Padding padding={!errorMessage ? 30 : 15} />
                 <Button title='Continue' onClick={() => setReciever()}  />
             </View>
             <TouchableOpacity onPress={() => openQr()} >
@@ -57,6 +59,11 @@ const styles = StyleSheet.create({
     },
     icon: {
         textAlign: 'center',
+        paddingTop: 10
+    },
+    errorMessage: {
+        fontSize: 17,
+        color: red,
         paddingTop: 10
     }
 })

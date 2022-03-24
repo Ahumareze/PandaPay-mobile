@@ -5,16 +5,17 @@ import { black, inputColor, red } from '../../utils/colors';
 
 interface AmountInputProps{
     title: string,
+    amount: any,
     onChange:(e: string) => void
 }
 
-const AmountInput:FC<AmountInputProps> = ({title, onChange}):JSX.Element => {
+const AmountInput:FC<AmountInputProps> = ({title, onChange, amount}):JSX.Element => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>{title}:</Text>
             <View style={styles.inputView}>
                 <Text style={styles.currency}>$</Text>
-                <TextInput style={styles.input} keyboardType={'numeric'} onChangeText={(e) => onChange(e)} />
+                <TextInput defaultValue={amount} style={styles.input} keyboardType={'numeric'} onChangeText={(e) => onChange(e)} />
             </View>
         </View>
     )

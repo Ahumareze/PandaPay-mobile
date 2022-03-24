@@ -34,7 +34,7 @@ const signup = (data) => {
                 dispatch(setData(r.data))
             })
             .catch(e => {
-                if(e.response.data){
+                if(e.response){
                     dispatch(setAuthError(e.response.data.message))
                 }else{
                     dispatch(setAuthError('network error'))

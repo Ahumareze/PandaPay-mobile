@@ -1,4 +1,4 @@
-import {getReciever, dismiss, setSendAmount, setIsScan, getOfflineData} from './actions';
+import {getReciever, dismiss, setSendAmount, setIsScan, getOfflineData, setErrorMessage, qrData} from './actions';
 import { init, signup, login, logout, setAuthError } from './auth';
 
 export {
@@ -7,7 +7,9 @@ export {
     dismiss,
     setIsScan,
     getOfflineData,
-
+    setErrorMessage,
+    qrData,
+    
     init,
     signup,
     login,
