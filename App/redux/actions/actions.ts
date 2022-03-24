@@ -75,7 +75,9 @@ const qrData = (data: any) => {
             id: arr[3],
             amount: arr[4]
         }
-        console.log(reciever)
+        dispatch(setIsScan(false))
+        dispatch(setSendAmount(arr[4]))
+        dispatch(setReciever(reciever));
     }
 }
 

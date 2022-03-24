@@ -24,7 +24,6 @@ function TransferScreenView(props) {
     const [data, setData] = useState();
 
     const read = (e) => {
-        setData(e);
         dispatch(actions.qrData(e.data))
     }
 
@@ -49,11 +48,6 @@ function TransferScreenView(props) {
             }
         />
     )
-    if(data){
-        qrView = (
-            <Button onClick={() => setData(null)} title='restart' />
-        )
-    }
 
     const container = (
         <View style={styles.container}>

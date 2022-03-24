@@ -18,6 +18,8 @@ function Transfer(props) {
     const recieverDetails = useSelector((state: any) => state.mainReducer.reciever);
     const dispatch = useDispatch();
 
+    console.log(recieverDetails)
+
     return (
         <View style={styles.container}>
             <UserDetails username={recieverDetails.username} email={recieverDetails.email} nft={recieverDetails.nft} />
