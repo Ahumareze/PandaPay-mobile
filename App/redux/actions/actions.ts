@@ -9,7 +9,9 @@ import { dbUrl } from '../../utils/urls';
 
 //Test components
 const getUserData = () => {
-    
+    return (dispatch: any) => {
+        
+    }
 }
 
 const getReciever = (email: string) => {
