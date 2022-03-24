@@ -11,7 +11,7 @@ import Recieve from './components/Recieve/Recieve';
 import QuickTransaction from './components/QuickTransaction/QuickTransaction';
 import Transactions from './components/Transactions/Transactions';
 import * as actions from '../../redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface HomeViewProps{
     send: () => void,
@@ -20,6 +20,8 @@ interface HomeViewProps{
 
 const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
     const dispatch = useDispatch();
+    const loading = useSelector((state: any) => state.mainReducer.loading);
+    const errorScreen = useSelector((state: any) => state.mainReducer.errorScreen);
     const [openRecieve, setOpenRecieve] = useState<boolean>(false);
 
     useEffect(() => {
