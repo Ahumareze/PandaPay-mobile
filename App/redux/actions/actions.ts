@@ -21,7 +21,7 @@ const getReciever = (email: string) => {
         //Validate email
         if(email){
         //Run function to fetch user from database
-        axios.post(dbUrl + '/user', {email})
+        axios.post(dbUrl + '/reciever', {email})
             .then(r => {
                 dispatch(setReciever(r.data))
                 dispatch(setLoading(false));
