@@ -68,7 +68,14 @@ const getOfflineData = () => {
 const qrData = (data: any) => {
     return (dispatch: any) => {
         const arr = data.split(' ');
-        console.log(arr);
+        const reciever = {
+            username: arr[0],
+            email: arr[1],
+            nft: JSON.parse(arr[2]),
+            id: arr[3],
+            amount: arr[4]
+        }
+        console.log(reciever)
     }
 }
 

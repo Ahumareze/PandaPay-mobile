@@ -5,7 +5,7 @@ import { black, inputColor, red } from '../../utils/colors';
 
 interface AmountInputProps{
     title: string,
-    amount: any,
+    amount: string,
     onChange:(e: string) => void
 }
 
