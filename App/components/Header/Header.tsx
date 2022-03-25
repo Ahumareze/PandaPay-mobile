@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {images} from '../../utils/images';
 import * as actions from '../../redux/actions';
-import { withdrawColor } from '../../utils/colors';
+import { white, withdrawColor } from '../../utils/colors';
 
 interface HeaderProps{
     navigate: () => void
@@ -38,6 +38,9 @@ const Header:FC<HeaderProps> = ({navigate}):JSX.Element => {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
+        paddingLeft: 10,
+        paddingRight: 10,
+        backgroundColor: white,
         paddingTop: 7,
         display: 'flex',
         flexDirection: 'row',

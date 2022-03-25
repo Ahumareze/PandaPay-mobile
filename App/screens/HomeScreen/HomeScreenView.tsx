@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, RefreshControl } from 'react-native';
 
 //Imported Components
 import { Header, Loader } from '../../components';
@@ -37,8 +37,12 @@ const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
         setOpenRecieve(true)
     }
 
+    const onRefresh = () => {
+        dispatch(actions.getUserData())
+    }
+
     let view = (
-        <ScrollView>
+        <ScrollView  style={styles.container} refreshControl={ <RefreshControl refreshing={loading} onRefresh={() => onRefresh()} /> }>
             <Balance balance={userData.balance} />
             <QuickTransaction onSend={() => onSend()} onRecieve={() => onRecieve()} />
             <Transactions history={userData.history} />
@@ -51,7 +55,7 @@ const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={{paddingBottom: 100}}>
             <Header navigate={() => profile()} />
             {!loading ? view : <Loader />}
         </View>
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingLeft: 10,
         width: width,
-        height: height - 70
+        height: height - 100
     }
 })
 

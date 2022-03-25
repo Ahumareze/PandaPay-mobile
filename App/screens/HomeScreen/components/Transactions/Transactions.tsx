@@ -13,8 +13,6 @@ interface TransactionProps{
 
 const Transactions:FC<TransactionProps> = ({history}):JSX.Element => {
 
-    console.log(history.length)
-
     let view = <Text>No transaction made</Text>
     if(history?.length > 0){
         view = (
