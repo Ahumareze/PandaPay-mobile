@@ -10,6 +10,7 @@ import Balance from './components/Balance';
 import Recieve from './components/Recieve/Recieve';
 import QuickTransaction from './components/QuickTransaction/QuickTransaction';
 import Transactions from './components/Transactions/Transactions';
+import ErrorScreen from './components/ErrorScreen';
 import * as actions from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -51,7 +52,7 @@ const HomeScreenView:FC<HomeViewProps> = ({send, profile}):JSX.Element => {
     if(openRecieve){
         view = <Recieve onClose={() => setOpenRecieve(false)} />
     }else if(errorScreen){
-        view = <Text>Error Screen</Text>
+        view = <ErrorScreen loading={loading} reload={() => onRefresh()} />
     }
 
     return (

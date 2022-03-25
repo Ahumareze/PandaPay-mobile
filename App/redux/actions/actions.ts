@@ -11,6 +11,7 @@ import { dbUrl } from '../../utils/urls';
 const getUserData = () => {
     return async (dispatch: any) => {
         dispatch(setLoading(true));
+        dispatch(setErrScreen(false))
 
         //get id from local storage
         const id = await AsyncStorage.getItem('id');
@@ -126,15 +127,26 @@ const transfer = (sender: string, reciever: string, amount: string) => {
             axios.post(dbUrl + '/transfer', data)
                 .then(r => {
                     dispatch(setLoading(false))
-                    console.log(r.data)
+                    dispatch(setSuccessScreen(true));
                 })
                 .catch(e => {
-                    dispatch(setLoading(false))
-                    console.log(e.response)
+                    if(e.response){
+                        dispatch(setErrorMessage(e.response.data.message))
+                    }else{
+                        dispatch(setErrorMessage('network error'))
+                    }
+                    dispatch(setLoading(false));
                 })
         }else{
             dispatch(setErrorMessage('please enter amount'))
         }
+    }
+}
+
+const setSuccessScreen = (value: boolean) => {
+    return{
+        type: actionTypes.SETSUCCESSSCREEN,
+        value
     }
 }
 
@@ -189,5 +201,6 @@ export {
     getOfflineData,
     setErrorMessage,
     qrData,
-    transfer
+    transfer,
+    setSuccessScreen
 }

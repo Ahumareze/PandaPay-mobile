@@ -16,9 +16,9 @@ const TransactionItem:FC<TransactionItemProps> = ({username, date, nft, amount, 
 
     let amountView;
     if(type === 'credit'){
-        amountView = <Text style={styles.amount}>+${amount}</Text>
+        amountView = <Text style={styles.amount}>+${amount?.toFixed(2)}</Text>
     }else if(type === 'debit'){
-        amountView = <Text style={[styles.amount, styles.amount2]}>-${amount}</Text>
+        amountView = <Text style={[styles.amount, styles.amount2]}>-${amount?.toFixed(2)}</Text>
     };
     
     return (

@@ -14,12 +14,14 @@ import { RNCamera } from 'react-native-camera';
 
 import { height, width } from '../../utils/dimension';
 import * as actions from '../../redux/actions';
+import SuccessScreen from './components/SuccessScreen';
 
 function TransferScreenView(props) {
     const dispatch = useDispatch();
     const reciever = useSelector((state: any) => state.mainReducer.reciever);
     const loading = useSelector((state: any) => state.mainReducer.loading);
     const openQr = useSelector((state: any) => state.mainReducer.isScan);
+    const successScreen = useSelector((state: any) => state.mainReducer.successScreen);
 
     const [data, setData] = useState();
 
@@ -53,6 +55,7 @@ function TransferScreenView(props) {
         <View style={styles.container}>
             <Text style={styles.title}>New Transaction</Text>
             {!loading ? view : <Loader />}
+            {successScreen && <SuccessScreen /> }
         </View>
     )
 

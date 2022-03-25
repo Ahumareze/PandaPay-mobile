@@ -10,7 +10,7 @@ const Balance:FC<BalanceProps> = ({balance}):JSX.Element => {
     return (
         <View style={styles.container}>
             <Text style={styles.accText}>Account balance:</Text>
-            <Text style={styles.accBal}>${balance}</Text>
+            <Text style={styles.accBal}>${balance?.toFixed(2)}</Text>
         </View>
     );
 }
