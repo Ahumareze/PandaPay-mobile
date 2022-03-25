@@ -36,7 +36,7 @@ function ProfileScreenView(props) {
                     <AccountSettings />
                 </View>
             </ScrollView>
-            <ChangeNft />
+            <ChangeNft activeNft={offlineData.nft} />
         </>
     );
 };
