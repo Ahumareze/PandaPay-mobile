@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: black,
-        textAlign: 'center'
+        textAlign: 'center',
+        paddingTop: 10
     },
     qrContainer: {
         backgroundColor: white

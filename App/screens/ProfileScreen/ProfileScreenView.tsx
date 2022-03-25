@@ -11,6 +11,7 @@ import AccountSettings from './components/AccountSettings/AccountSettings';
 import * as actions from '../../redux/actions';
 
 import {images} from '../../utils/images';
+import ChangeNft from './components/ChangeNft/ChangeNft';
 
 const img = require('../../assets/cat2.png');
 
@@ -23,17 +24,20 @@ function ProfileScreenView(props) {
     }, [])
 
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <View style={styles.userProfileDetails}>
-                    <ProfilePic img={images[offlineData.nft]} />
-                    <Text style={styles.username}>{offlineData.username}</Text>
-                    <Text style={styles.email}>{offlineData.email}</Text>
+        <>
+            <ScrollView>
+                <View style={styles.container}>
+                    <View style={styles.userProfileDetails}>
+                        <ProfilePic img={images[offlineData.nft]} />
+                        <Text style={styles.username}>{offlineData.username}</Text>
+                        <Text style={styles.email}>{offlineData.email}</Text>
+                    </View>
+                    <ProfileSettings />
+                    <AccountSettings />
                 </View>
-                <ProfileSettings />
-                <AccountSettings />
-            </View>
-        </ScrollView>
+            </ScrollView>
+            <ChangeNft />
+        </>
     );
 };
 
