@@ -11,14 +11,26 @@ interface TransactionProps{
     history: any
 }
 
-const Transactions:FC<TransactionProps> = ({history = []}):JSX.Element => {
+const Transactions:FC<TransactionProps> = ({history}):JSX.Element => {
+
+    console.log(history.length)
 
     let view = <Text>No transaction made</Text>
-    if(history.length > 0){
-        <>
-            <TransactionItem img={images[1]} username='stephen_curry' date='13 Mar 2022' amount={230} type='credit' />
-            <TransactionItem img={images[2]} username='kalme_steve' date='12 Jan 2022' amount={140} type='debit' />
-        </>
+    if(history?.length > 0){
+        view = (
+            <>
+                {history.map(i => (
+                    <TransactionItem 
+                        nft={i.nft} 
+                        username={i.name} 
+                        amount={i.amount} 
+                        type={i.type} 
+                        date={i.date}
+                        key={i.amount}
+                    />
+                ))}
+            </>
+        )
     }
 
     return (
@@ -37,7 +49,6 @@ const Transactions:FC<TransactionProps> = ({history = []}):JSX.Element => {
 const styles = StyleSheet.create({
     container: {
         paddingBottom: 5,
-        height: height,
         width: '100%',
         borderWidth: 1,
         borderColor: strokeColor,

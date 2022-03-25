@@ -2,15 +2,17 @@ import React, {FC} from 'react';
 import { View, StyleSheet, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { black, darkerGreen, darkGreen, red, strokeColor } from '../../../../utils/colors';
 
+import {images} from '../../../../utils/images';
+
 interface TransactionItemProps{
     username: string,
     date: string,
-    img: any,
+    nft: number,
     amount: number,
     type: string
 }
 
-const TransactionItem:FC<TransactionItemProps> = ({username, date, img, amount, type}):JSX.Element => {
+const TransactionItem:FC<TransactionItemProps> = ({username, date, nft, amount, type}):JSX.Element => {
 
     let amountView;
     if(type === 'credit'){
@@ -23,7 +25,7 @@ const TransactionItem:FC<TransactionItemProps> = ({username, date, img, amount, 
         <TouchableOpacity>
         <View style={styles.container}>
             <View style={styles.v1}>
-                <ImageBackground source={img} style={styles.userImg}/>
+                <ImageBackground source={images[nft]} style={styles.userImg}/>
             </View>
             <View style={styles.v2}>
                 <View>

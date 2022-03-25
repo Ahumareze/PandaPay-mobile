@@ -114,7 +114,24 @@ const qrData = (data: any) => {
 const transfer = (sender: string, reciever: string, amount: string) => {
     return (dispatch: any) => {
         if(amount){
-
+            dispatch(setLoading(true))
+            //initialize data before sending to backend
+            const date = new Date().toDateString();
+            const data = {
+                sender,
+                reciever,
+                amount: JSON.parse(amount),
+                date
+            }
+            axios.post(dbUrl + '/transfer', data)
+                .then(r => {
+                    dispatch(setLoading(false))
+                    console.log(r.data)
+                })
+                .catch(e => {
+                    dispatch(setLoading(false))
+                    console.log(e.response)
+                })
         }else{
             dispatch(setErrorMessage('please enter amount'))
         }

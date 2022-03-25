@@ -26,8 +26,8 @@ function Transfer(props) {
             dispatch(actions.setErrorMessage('Cannot transfer money to yourself'))
         }else{
             dispatch(actions.transfer(
-                offlineData.username,
-                recieverDetails.username,
+                offlineData.id,
+                recieverDetails.id,
                 amount
             ))
         }
