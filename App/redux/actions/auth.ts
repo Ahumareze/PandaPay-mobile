@@ -1,6 +1,7 @@
 //Imported Packages
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import SplashScreen from 'react-native-splash-screen';
 
 //Imported utilities
 import * as actions from './actionTypes';
@@ -15,10 +16,11 @@ const init = () => {
                 }else{
                     console.log('empty')
                 }
+                setTimeout(() => SplashScreen.hide(), 500)
             })
             .catch(e => {
                 console.log(e)
-            })
+        })
     }
 };
 

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { StatusBar, View } from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
 
 //Imported utilities
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,7 +15,6 @@ function App(props) {
 
   useEffect(() => {
     dispatch(actions.init())
-    SplashScreen.hide()
   }, []);
 
   return (
