@@ -144,7 +144,7 @@ const transfer = (sender: string, reciever: string, amount: string) => {
 
 const updateNft = (nft: number, id:string) => {
     return (dispatch: any) => {
-        dispatch(setLoading(true))
+        console.log(typeof(nft))
     }
 }
 
