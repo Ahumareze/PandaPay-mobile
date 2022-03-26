@@ -12,5 +12,6 @@ export {
     Header,
     Button,
     Loader,
-    CancleButton
+    CancleButton,
+    Padding
 }

@@ -148,11 +148,12 @@ const updateNft = (nft: number, id:string) => {
 
         axios.post(dbUrl + '/updateNft', {id, nft})
             .then(r => {
-                dispatch(setLoading(false))
+                dispatch(setLoading(false));
+                dispatch(changeNft(false));
+                AsyncStorage.setItem('nft', JSON.stringify(nft))
             })
             .catch(e => {
                 dispatch(setLoading(false))
-                console.log(e)
             })
     }
 }

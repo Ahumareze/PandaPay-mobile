@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, RefreshControl } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 //Imported Components
@@ -23,8 +23,12 @@ function ProfileScreenView(props) {
     const loading = useSelector((state: any) => state.mainReducer.loading);
 
     useEffect(() => {
-        dispatch(actions.getOfflineData());
+        fetchOfflineData();
     }, []);
+
+    const fetchOfflineData = () => {
+        dispatch(actions.getOfflineData());
+    }
 
     const openChangeNft = () => {
         dispatch(actions.changeNft(true))
@@ -36,7 +40,7 @@ function ProfileScreenView(props) {
 
     const view = (
         <>
-            <ScrollView>
+            <ScrollView refreshControl={<RefreshControl refreshing={loading} onRefresh={() => fetchOfflineData()} />} >
                 <View style={styles.container}>
                     <View style={styles.userProfileDetails}>
                         <ProfilePic img={images[offlineData.nft]} changeNft={() => openChangeNft()} />
