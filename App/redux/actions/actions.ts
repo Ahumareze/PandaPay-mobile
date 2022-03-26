@@ -144,7 +144,16 @@ const transfer = (sender: string, reciever: string, amount: string) => {
 
 const updateNft = (nft: number, id:string) => {
     return (dispatch: any) => {
-        console.log(typeof(nft))
+        dispatch(setLoading(true))
+
+        axios.post(dbUrl + '/updateNft', {id, nft})
+            .then(r => {
+                dispatch(setLoading(false))
+            })
+            .catch(e => {
+                dispatch(setLoading(false))
+                console.log(e)
+            })
     }
 }
 
