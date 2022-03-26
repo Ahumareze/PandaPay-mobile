@@ -41,7 +41,7 @@ function ProfileScreenView(props) {
                     <AccountSettings />
                 </View>
             </ScrollView>
-            {changeNft && <ChangeNft activeNft={offlineData.nft} />}
+            {changeNft && <ChangeNft activeNft={offlineData.nft} close={() => dispatch(actions.changeNft(false))} />}
         </>
     );
 };

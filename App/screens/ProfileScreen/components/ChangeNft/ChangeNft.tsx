@@ -9,13 +9,14 @@ import {images} from '../../../../utils/images';
 
 //Imported components
 import NftItem from './NftItem';
-import {Button} from '../../../../components';
+import {Button, CancleButton} from '../../../../components';
 
 interface ChangeNftProps{
-    activeNft: number
+    activeNft: number,
+    close: () => void
 }
 
-const ChangeNft:FC<ChangeNftProps> = ({activeNft}):JSX.Element => {
+const ChangeNft:FC<ChangeNftProps> = ({activeNft, close}):JSX.Element => {
     const [selected, setSelected] = useState<number>(activeNft);
 
     console.log(selected)
@@ -40,10 +41,10 @@ const ChangeNft:FC<ChangeNftProps> = ({activeNft}):JSX.Element => {
                 </View>
             </ScrollView>
             <View style={styles.buttonContainer}>
-                <View>
-
+                <View style={styles.buttonContainers}>
+                    <CancleButton title='Cancle' onClick={() => close()} />
                 </View>
-                <View>
+                <View style={styles.buttonContainers}>
                     <Button title='Update' onClick={() => console.log('')} />
                 </View>
             </View>
@@ -83,10 +84,15 @@ const styles = StyleSheet.create({
         backgroundColor: white,
         position: 'absolute',
         bottom: 0,
-        paddingLeft: 50,
-        paddingRight: 50,
         paddingTop: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    buttonContainers: {
+        width: '50%',
+        paddingLeft: 20,
+        paddingRight: 20
     }
 })
 
