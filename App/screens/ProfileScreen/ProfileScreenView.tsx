@@ -28,8 +28,8 @@ function ProfileScreenView(props) {
         dispatch(actions.changeNft(true))
     }
 
-    const update = () => {
-
+    const update = (nft: number) => {
+        dispatch(actions.updateNft(nft, offlineData.id))
     }
 
     return (
@@ -49,7 +49,7 @@ function ProfileScreenView(props) {
                 <ChangeNft 
                     activeNft={offlineData.nft} 
                     close={() => dispatch(actions.changeNft(false))} 
-                    update={() => update()}
+                    update={(nft) => update(nft)}
                 />
             }
         </>

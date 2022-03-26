@@ -14,7 +14,7 @@ import {Button, CancleButton} from '../../../../components';
 interface ChangeNftProps{
     activeNft: number,
     close: () => void,
-    update: () => void
+    update: (e: number) => void
 }
 
 const ChangeNft:FC<ChangeNftProps> = ({activeNft, close, update}):JSX.Element => {
@@ -46,7 +46,7 @@ const ChangeNft:FC<ChangeNftProps> = ({activeNft, close, update}):JSX.Element =>
                     <CancleButton title='Cancle' onClick={() => close()} />
                 </View>
                 <View style={styles.buttonContainers}>
-                    <Button title='Update' onClick={() => update()} />
+                    <Button title='Update' onClick={() => update(selected)} />
                 </View>
             </View>
         </View>

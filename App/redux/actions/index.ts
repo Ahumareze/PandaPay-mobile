@@ -9,7 +9,8 @@ import {
     qrData, 
     transfer, 
     setSuccessScreen,
-    changeNft
+    changeNft,
+    updateNft
 } from './actions';
 
 import { 
@@ -32,6 +33,7 @@ export {
     transfer,
     setSuccessScreen,
     changeNft,
+    updateNft,
     
     init,
     signup,

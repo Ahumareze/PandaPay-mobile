@@ -143,6 +143,12 @@ const transfer = (sender: string, reciever: string, amount: string) => {
     }
 };
 
+const updateNft = (nft: number, id:string) => {
+    return (dispatch: any) => {
+        console.log(nft, id)
+    }
+}
+
 const changeNft = (value: boolean) => {
     return{
         type: actionTypes.CHANGENFT,
@@ -210,5 +216,6 @@ export {
     qrData,
     transfer,
     setSuccessScreen,
-    changeNft
+    changeNft,
+    updateNft
 }
