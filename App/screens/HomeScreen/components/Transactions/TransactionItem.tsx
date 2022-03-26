@@ -22,7 +22,6 @@ const TransactionItem:FC<TransactionItemProps> = ({username, date, nft, amount, 
     };
     
     return (
-        <TouchableOpacity>
         <View style={styles.container}>
             <View style={styles.v1}>
                 <ImageBackground source={images[nft]} style={styles.userImg}/>
@@ -37,7 +36,6 @@ const TransactionItem:FC<TransactionItemProps> = ({username, date, nft, amount, 
                 {amountView}
             </View>
         </View>
-        </TouchableOpacity>
     );
 };
 

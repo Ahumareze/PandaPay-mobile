@@ -13,7 +13,7 @@ interface TransactionProps{
 
 const Transactions:FC<TransactionProps> = ({history}):JSX.Element => {
 
-    let view = <Text>No transaction made</Text>
+    let view = <Text style={styles.emptyHistoryText}>No transaction made</Text>
     if(history?.length > 0){
         view = (
             <>
@@ -75,6 +75,12 @@ const styles = StyleSheet.create({
         marginRight: 'auto',
         marginLeft: 'auto',
         paddingTop: 10
+    },
+    emptyHistoryText: {
+        textAlign: 'center',
+        color: black,
+        fontSize: 16,
+        opacity: 0.5
     }
 })
 

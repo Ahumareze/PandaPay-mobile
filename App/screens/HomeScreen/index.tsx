@@ -1,3 +1,3 @@
-import AuthScreenContainer from "../AuthScreen";
+import HomeScreenContainer from "./HomeScreenContainer";
 
-export default AuthScreenContainer;
+export default HomeScreenContainer;

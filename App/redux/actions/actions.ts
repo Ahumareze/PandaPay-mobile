@@ -153,7 +153,8 @@ const updateNft = (nft: number, id:string) => {
                 AsyncStorage.setItem('nft', JSON.stringify(nft))
             })
             .catch(e => {
-                dispatch(setLoading(false))
+                dispatch(setLoading(false));
+                alert('Error updating Nft')
             })
     }
 }

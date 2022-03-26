@@ -6,7 +6,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
     HomeScreenContainer,
     TransferScreenContainer,
-    ProfileScreenContainer
+    ProfileScreenContainer,
+    StoreScreenContainer
 } from '../screens/index';
 
 //Routes
@@ -37,7 +38,7 @@ const Transfer = () => {
 }
 
 const Store = () => {
-    return <Text>Store</Text>
+    return <StoreScreenContainer />
 }
 
 const Profile = () => {
