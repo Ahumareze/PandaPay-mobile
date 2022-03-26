@@ -141,6 +141,13 @@ const transfer = (sender: string, reciever: string, amount: string) => {
             dispatch(setErrorMessage('please enter amount'))
         }
     }
+};
+
+const changeNft = (value: boolean) => {
+    return{
+        type: actionTypes.CHANGENFT,
+        value
+    }
 }
 
 const setSuccessScreen = (value: boolean) => {
@@ -202,5 +209,6 @@ export {
     setErrorMessage,
     qrData,
     transfer,
-    setSuccessScreen
+    setSuccessScreen,
+    changeNft
 }

@@ -3,12 +3,13 @@ import { View, StyleSheet, TouchableOpacity, ImageBackground } from 'react-nativ
 import { darkGreen, withdrawColor } from '../../../utils/colors';
 
 interface ProfilePicProps{
-    img: any
+    img: any,
+    changeNft: () => void
 }
 
-const ProfilePic:FC<ProfilePicProps> = ({img}):JSX.Element => {
+const ProfilePic:FC<ProfilePicProps> = ({img, changeNft}):JSX.Element => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => changeNft()}>
             <ImageBackground source={img} style={styles.container} />
         </TouchableOpacity>
     );

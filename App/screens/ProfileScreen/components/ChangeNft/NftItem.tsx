@@ -13,7 +13,7 @@ interface NftIemProps{
 
 const NftItem:FC<NftIemProps> = ({nft, name, active, onSelect}):JSX.Element => {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={() => onSelect()} >
             <Image source={images[nft]} style={active !== nft ? styles.mainNft :styles.activeNft } />
             <Text style={styles.name}>{name}</Text>
         </TouchableOpacity>

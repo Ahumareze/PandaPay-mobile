@@ -9,7 +9,8 @@ const initialState = {
     offlineData: {},
     userData: {},
     errorScreen: false,
-    successScreen: false
+    successScreen: false,
+    changeNft: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,7 +32,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SETERRORSCREEN:
             return {...state, errorScreen: action.value};
         case actionTypes.SETSUCCESSSCREEN:
-            return {...state, successScreen: action.value}
+            return {...state, successScreen: action.value};
+        case actionTypes.CHANGENFT:
+            return {...state, changeNft: action.value};
     }
     return state;
 }

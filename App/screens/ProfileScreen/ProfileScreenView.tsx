@@ -18,17 +18,22 @@ const img = require('../../assets/cat2.png');
 function ProfileScreenView(props) {
     const dispatch = useDispatch();
     const offlineData = useSelector((state: any) => state.mainReducer.offlineData);
+    const changeNft = useSelector((state: any) => state.mainReducer.changeNft);
 
     useEffect(() => {
         dispatch(actions.getOfflineData());
-    }, [])
+    }, []);
+
+    const openChangeNft = () => {
+        dispatch(actions.changeNft(true))
+    }
 
     return (
         <>
             <ScrollView>
                 <View style={styles.container}>
                     <View style={styles.userProfileDetails}>
-                        <ProfilePic img={images[offlineData.nft]} />
+                        <ProfilePic img={images[offlineData.nft]} changeNft={() => openChangeNft()} />
                         <Text style={styles.username}>{offlineData.username}</Text>
                         <Text style={styles.email}>{offlineData.email}</Text>
                     </View>
@@ -36,7 +41,7 @@ function ProfileScreenView(props) {
                     <AccountSettings />
                 </View>
             </ScrollView>
-            <ChangeNft activeNft={offlineData.nft} />
+            {changeNft && <ChangeNft activeNft={offlineData.nft} />}
         </>
     );
 };

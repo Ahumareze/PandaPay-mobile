@@ -1,5 +1,24 @@
-import {getUserData, getReciever, dismiss, setSendAmount, setIsScan, getOfflineData, setErrorMessage, qrData, transfer, setSuccessScreen} from './actions';
-import { init, signup, login, logout, setAuthError } from './auth';
+import {
+    getUserData, 
+    getReciever, 
+    dismiss, 
+    setSendAmount, 
+    setIsScan, 
+    getOfflineData, 
+    setErrorMessage, 
+    qrData, 
+    transfer, 
+    setSuccessScreen,
+    changeNft
+} from './actions';
+
+import { 
+    init, 
+    signup, 
+    login, 
+    logout, 
+    setAuthError 
+} from './auth';
 
 export {
     getUserData,
@@ -12,6 +31,7 @@ export {
     qrData,
     transfer,
     setSuccessScreen,
+    changeNft,
     
     init,
     signup,
