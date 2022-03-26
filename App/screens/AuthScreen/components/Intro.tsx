@@ -1,11 +1,13 @@
 import React, {FC} from 'react';
 import { View, StyleSheet, Text, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 
+//Imported components
+import LinearGradient from 'react-native-linear-gradient';
+
 //Imported utilities
 import { Logo } from '../../../components';
 import { height, width } from '../../../utils/dimension';
 import {darkGreen, black, medBlack, white, lightGreen, darkerGreen} from '../../../utils/colors';
-import LinearGradient from 'react-native-linear-gradient';
 
 interface IntroProps {
     getStarted: (e: number) => void

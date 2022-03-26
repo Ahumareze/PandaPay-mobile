@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import { View, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
+
+//Import utilities
 import { darkGreen, withdrawColor } from '../../../utils/colors';
 
 interface ProfilePicProps{

@@ -2,17 +2,18 @@ import React, {FC, useEffect, useState} from 'react';
 import { Text, View, StyleSheet, ScrollView, RefreshControl } from 'react-native';
 
 //Imported Components
-import { Header, Loader } from '../../components';
-import { white } from '../../utils/colors';
-import {height, width} from '../../utils/dimension';
-
+import { useDispatch, useSelector } from 'react-redux';
 import Balance from './components/Balance';
 import Recieve from './components/Recieve/Recieve';
 import QuickTransaction from './components/QuickTransaction/QuickTransaction';
 import Transactions from './components/Transactions/Transactions';
 import ErrorScreen from './components/ErrorScreen';
+
+//Imported utilities
+import { Header, Loader } from '../../components';
+import { white } from '../../utils/colors';
+import {height, width} from '../../utils/dimension';
 import * as actions from '../../redux/actions';
-import { useDispatch, useSelector } from 'react-redux';
 
 interface HomeViewProps{
     send: () => void,

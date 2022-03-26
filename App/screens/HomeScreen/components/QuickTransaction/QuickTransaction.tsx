@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+
+//Imported components
 import QuickButtons from './QuickButtons';
 
 interface QuickTransactionProps{

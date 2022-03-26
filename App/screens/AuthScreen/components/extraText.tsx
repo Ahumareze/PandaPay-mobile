@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import { View, StyleSheet, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
+
+//Imported utilities
 import { darkGreen } from '../../../utils/colors';
 
 interface ExtraTextProps{

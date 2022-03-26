@@ -6,6 +6,8 @@ import { Logo } from '../../components';
 import Intro from './components/Intro';
 import SignupScreen from './components/SignupScreen';
 import SignInScreen from './components/SignInScreen';
+
+//Imported utilities
 import { white } from '../../utils/colors';
 
 const AuthScreenView = () => {

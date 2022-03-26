@@ -5,9 +5,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 //Imported Components
 import { Button, Input, Padding } from '../../../../components';
-import { black, red } from '../../../../utils/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 
+//Imported utilities
+import { black, red } from '../../../../utils/colors';
 import * as actions from '../../../../redux/actions';
 
 function Main(props) {

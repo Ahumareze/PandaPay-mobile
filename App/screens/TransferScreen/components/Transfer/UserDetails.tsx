@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+
+//Imported utilities
 import { black } from '../../../../utils/colors';
 import {images} from '../../../../utils/images';
 

@@ -4,17 +4,17 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { black, red, white } from '../../utils/colors';
 
 //Imported Compoents
+import { RNCamera } from 'react-native-camera';
 import Main from './components/Main/Main';
 import Transfer from './components/Transfer/Transfer';
-
 import { Button, Loader } from '../../components';
-
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera } from 'react-native-camera';
+import SuccessScreen from './components/SuccessScreen';
 
+//Imported utilities
 import { height, width } from '../../utils/dimension';
 import * as actions from '../../redux/actions';
-import SuccessScreen from './components/SuccessScreen';
+
 
 function TransferScreenView(props) {
     const dispatch = useDispatch();

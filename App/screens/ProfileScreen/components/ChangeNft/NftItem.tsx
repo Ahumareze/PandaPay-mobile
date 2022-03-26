@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { black, darkerGreen, lightGreen, red } from '../../../../utils/colors';
 
+//Imported utilities
 import {images} from '../../../../utils/images';
 
 interface NftIemProps{

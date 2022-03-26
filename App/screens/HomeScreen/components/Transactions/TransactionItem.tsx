@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import { View, StyleSheet, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { black, darkerGreen, darkGreen, red, strokeColor } from '../../../../utils/colors';
 
+//Imported utilities
 import {images} from '../../../../utils/images';
 
 interface TransactionItemProps{

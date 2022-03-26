@@ -4,17 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 //Imported Components
 import ProfilePic from './components/ProfilePic';
-import {width, height} from '../../utils/dimension';
-import { black, white } from '../../utils/colors';
 import ProfileSettings from './components/ProfileSettings/ProfileSettings';
 import AccountSettings from './components/AccountSettings/AccountSettings';
-import { Loader } from '../../components';
-import * as actions from '../../redux/actions';
-
-import {images} from '../../utils/images';
 import ChangeNft from './components/ChangeNft/ChangeNft';
+import { Loader } from '../../components';
 
-const img = require('../../assets/cat2.png');
+//Imported Utilities
+import {width, height} from '../../utils/dimension';
+import { black, white } from '../../utils/colors';
+import * as actions from '../../redux/actions';
+import {images} from '../../utils/images';
 
 function ProfileScreenView(props) {
     const dispatch = useDispatch();

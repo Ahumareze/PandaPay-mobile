@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
+//Imported utilities
 import { useDispatch } from 'react-redux';
 import { darkerGreen, red } from '../../../../utils/colors';
 import * as actions from '../../../../redux/actions';
@@ -15,7 +17,7 @@ function AccountSettings(props) {
         <View style={styles.container}>
             <Text style={styles.title}>Account</Text>
             <View>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => logout()}>
                     <Text style={styles.switchAccount}>Switch to other account</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => logout()} >

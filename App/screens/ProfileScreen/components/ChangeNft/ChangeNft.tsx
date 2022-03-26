@@ -1,15 +1,13 @@
 import React, { useState, FC } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
 
-//Impoted utilities
-import { black, red, white } from '../../../../utils/colors';
-import { height, width } from '../../../../utils/dimension';
-
-import {images} from '../../../../utils/images';
-
 //Imported components
 import NftItem from './NftItem';
 import {Button, CancleButton} from '../../../../components';
+
+//Impoted utilities
+import { black, red, white } from '../../../../utils/colors';
+import { height, width } from '../../../../utils/dimension';
 
 interface ChangeNftProps{
     activeNft: number,

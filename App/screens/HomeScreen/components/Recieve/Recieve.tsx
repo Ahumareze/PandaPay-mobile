@@ -1,13 +1,16 @@
 import React, { useState, FC } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { Button, Padding } from '../../../../components';
-import AmountInput from '../../../../components/AmountInput/AmountInput';
-import { black, red } from '../../../../utils/colors';
-import { height } from '../../../../utils/dimension';
+
+//Imported componnets
 import QRCode from 'react-native-qrcode-svg';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../../../redux/actions';
+import { Button, Padding } from '../../../../components';
+import AmountInput from '../../../../components/AmountInput/AmountInput';
 
+//Imported utilities
+import { black, red } from '../../../../utils/colors';
+import { height } from '../../../../utils/dimension';
+import * as actions from '../../../../redux/actions';
 import {images} from '../../../../utils/images';
 
 interface RecieveProps {
@@ -45,6 +48,7 @@ const Recieve:FC<RecieveProps> = ({onClose}) => {
         </>
     )
     if(gen){
+        //If generate qrcode button is clicked open qrcode container
         view = (
             <>
                 <View>

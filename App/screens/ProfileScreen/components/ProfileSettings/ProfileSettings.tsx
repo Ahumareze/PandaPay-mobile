@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { black, depositColor, medBlack, notificationColor, red, withdrawColor } from '../../../../utils/colors';
+
+//Imported components
 import ProfileSettingItem from './ProfileSettingItem';
+
+//Import utilities
+import { black, depositColor, medBlack, notificationColor, red, withdrawColor } from '../../../../utils/colors';
 
 function ProfileSettings(props) {
     return (

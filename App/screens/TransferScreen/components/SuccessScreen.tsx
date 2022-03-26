@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+//Imported components
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useDispatch } from 'react-redux';
 import { Button } from '../../../components';
 
+//Imported utilities
 import { black, darkerGreen, white } from '../../../utils/colors';
 import { height, width } from '../../../utils/dimension';
 import * as actions from '../../../redux/actions';
