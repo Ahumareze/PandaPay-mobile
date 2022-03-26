@@ -16,7 +16,7 @@ function App(props) {
 
   useEffect(() => {
     dispatch(actions.init())
-    
+    SplashScreen.hide()
   }, []);
 
   return (
