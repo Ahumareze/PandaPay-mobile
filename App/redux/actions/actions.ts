@@ -16,8 +16,10 @@ const getUserData = () => {
         //get id from local storage
         const id = await AsyncStorage.getItem('id');
 
+        //fetch userdata
         axios.post(dbUrl + '/user', {id})
             .then(r => {
+                //set userdata to the fetched userdata
                 dispatch(setUserData(r.data));
                 dispatch(setLoading(false));
             })
@@ -49,9 +51,10 @@ const getReciever = (email: string) => {
 
         //Validate email
         if(email){
-        //Run function to fetch user from database
+        //fetch user from database
         axios.post(dbUrl + '/reciever', {email})
             .then(r => {
+                //Set the reciever state to fetched reciever
                 dispatch(setReciever({...r.data, id: r.data._id}))
                 dispatch(setLoading(false));
                 dispatch(setErrorMessage(null))
@@ -80,6 +83,7 @@ const setErrorMessage = (value: string) => {
 
 const getOfflineData = () => {
     return async (dispatch: any) => {
+        //get offline data from local storage
         const username = await AsyncStorage.getItem('username');
         const email = await AsyncStorage.getItem('email');
         const id = await AsyncStorage.getItem('id');
@@ -97,6 +101,7 @@ const getOfflineData = () => {
 
 const qrData = (data: any) => {
     return (dispatch: any) => {
+        //Decipher the qrcode data
         const arr = data.split(' ');
         const reciever = {
             username: arr[0],
@@ -105,6 +110,8 @@ const qrData = (data: any) => {
             id: arr[3],
             amount: arr[4]
         }
+
+        //close qrcode and set amount and reciever data
         dispatch(setIsScan(false))
         dispatch(setSendAmount(arr[4]))
         dispatch(setReciever(reciever));
@@ -114,7 +121,8 @@ const qrData = (data: any) => {
 const transfer = (sender: string, reciever: string, amount: string) => {
     return (dispatch: any) => {
         if(amount){
-            dispatch(setLoading(true))
+            dispatch(setLoading(true));
+
             //initialize data before sending to backend
             const date = new Date().toDateString();
             const data = {
@@ -122,7 +130,9 @@ const transfer = (sender: string, reciever: string, amount: string) => {
                 reciever,
                 amount: JSON.parse(amount),
                 date
-            }
+            };
+
+            //Post data to backend
             axios.post(dbUrl + '/transfer', data)
                 .then(r => {
                     dispatch(setLoading(false))
@@ -146,6 +156,7 @@ const updateNft = (nft: number, id:string) => {
     return (dispatch: any) => {
         dispatch(setLoading(true))
 
+        //post nft number and id to backend
         axios.post(dbUrl + '/updateNft', {id, nft})
             .then(r => {
                 dispatch(setLoading(false));
