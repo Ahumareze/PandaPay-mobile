@@ -28,6 +28,10 @@ function ProfileScreenView(props) {
         dispatch(actions.changeNft(true))
     }
 
+    const update = () => {
+
+    }
+
     return (
         <>
             <ScrollView>
@@ -41,7 +45,13 @@ function ProfileScreenView(props) {
                     <AccountSettings />
                 </View>
             </ScrollView>
-            {changeNft && <ChangeNft activeNft={offlineData.nft} close={() => dispatch(actions.changeNft(false))} />}
+            {changeNft && 
+                <ChangeNft 
+                    activeNft={offlineData.nft} 
+                    close={() => dispatch(actions.changeNft(false))} 
+                    update={() => update()}
+                />
+            }
         </>
     );
 };
