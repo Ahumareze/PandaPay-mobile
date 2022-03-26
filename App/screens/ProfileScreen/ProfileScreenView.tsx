@@ -8,6 +8,7 @@ import {width, height} from '../../utils/dimension';
 import { black, white } from '../../utils/colors';
 import ProfileSettings from './components/ProfileSettings/ProfileSettings';
 import AccountSettings from './components/AccountSettings/AccountSettings';
+import { Loader } from '../../components';
 import * as actions from '../../redux/actions';
 
 import {images} from '../../utils/images';
@@ -33,7 +34,7 @@ function ProfileScreenView(props) {
         dispatch(actions.updateNft(nft, offlineData.id))
     }
 
-    return (
+    const view = (
         <>
             <ScrollView>
                 <View style={styles.container}>
@@ -53,6 +54,12 @@ function ProfileScreenView(props) {
                     update={(nft) => update(nft)}
                 />
             }
+        </>
+    )
+
+    return (
+        <>
+            {!loading ? view : <Loader />}
         </>
     );
 };

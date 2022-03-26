@@ -22,7 +22,6 @@ const getUserData = () => {
                 dispatch(setLoading(false));
             })
             .catch(e => {
-                console.log(e);
                 dispatch(setLoading(false));
                 dispatch(setErrScreen(true))
             })
@@ -145,7 +144,7 @@ const transfer = (sender: string, reciever: string, amount: string) => {
 
 const updateNft = (nft: number, id:string) => {
     return (dispatch: any) => {
-        console.log(nft, id)
+        dispatch(setLoading(true))
     }
 }
 

@@ -20,8 +20,6 @@ interface ChangeNftProps{
 const ChangeNft:FC<ChangeNftProps> = ({activeNft, close, update}):JSX.Element => {
     const [selected, setSelected] = useState<number>(activeNft);
 
-    console.log(selected)
-
     return (
         <View style={styles.container}>
             <View style={styles.header}>
