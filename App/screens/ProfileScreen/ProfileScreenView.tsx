@@ -19,6 +19,7 @@ function ProfileScreenView(props) {
     const dispatch = useDispatch();
     const offlineData = useSelector((state: any) => state.mainReducer.offlineData);
     const changeNft = useSelector((state: any) => state.mainReducer.changeNft);
+    const loading = useSelector((state: any) => state.mainReducer.loading);
 
     useEffect(() => {
         dispatch(actions.getOfflineData());
